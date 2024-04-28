@@ -24,7 +24,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   This web page is dedicated to showcase our Exam project for the Social Data Analysis and Visualization course.
   <br/>Created by: Oliver Rosbæk Elmgreen, Benjamin Kock Fazal, and Johan Böcher Hanehøj
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://johan-bh.github.io/SocialData_FinalProject.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://johan-bh.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  johan-bh
 
 remote_theme: pages-themes/modernist@v0.2.0
