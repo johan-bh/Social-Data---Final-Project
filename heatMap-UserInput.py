@@ -58,25 +58,27 @@ df_harassment['hour'] = df_harassment['CMPLNT_FR_TM'].dt.hour
 df_harassment['X'] = df_harassment['X'].astype(float)
 df_harassment['Y'] = df_harassment['Y'].astype(float)
 
+print(df_harassment.shape)
 
-def update_heatmap(day, hour):
-    # Filter for the specific day and hour
-    filtered_data = df_harassment[(df_harassment['weekday'] == day) & (df_harassment['hour'] == hour)]
 
-    # Generate list of [lat, lon] pairs
-    heat_data = [[row['Y'], row['X']] for index, row in filtered_data.iterrows()]
+# def update_heatmap(day, hour):
+#     # Filter for the specific day and hour
+#     filtered_data = df_harassment[(df_harassment['weekday'] == day) & (df_harassment['hour'] == hour)]
 
-    # Create a new map
-    heat_map = folium.Map(location=[40.7128, -74.0060], zoom_start=12)
-    HeatMap(heat_data, radius=15, blur=5).add_to(heat_map)
+#     # Generate list of [lat, lon] pairs
+#     heat_data = [[row['Y'], row['X']] for index, row in filtered_data.iterrows()]
+
+#     # Create a new map
+#     heat_map = folium.Map(location=[40.7128, -74.0060], zoom_start=12)
+#     HeatMap(heat_data, radius=15, blur=5).add_to(heat_map)
     
-    # Save to HTML
-    map_file = "heatmap.html"
-    heat_map.save(map_file)
-    print(f"Heatmap saved to {map_file}. Please open this file in a web browser to view the map.")
-    return heat_map
+#     # Save to HTML
+#     map_file = "heatmap.html"
+#     heat_map.save(map_file)
+#     print(f"Heatmap saved to {map_file}. Please open this file in a web browser to view the map.")
+#     return heat_map
 
-# Collect inputs
-day = input("Enter the day of the week (Monday, Tuesday, etc.): ")
-hour = int(input("Enter the hour of the day (0-23): "))
-update_heatmap(day, hour)
+# # Collect inputs
+# day = input("Enter the day of the week (Monday, Tuesday, etc.): ")
+# hour = int(input("Enter the hour of the day (0-23): "))
+# update_heatmap(day, hour)

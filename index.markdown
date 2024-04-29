@@ -54,6 +54,8 @@ Suggestions like
 (We have Suspect {AgeGroup, Race, Sex}, as well as Victim {AgeGroup, Race, Sex} for at least like 30%)
 
 
+<!-- <iframe src="index.html" width="100%" height="600px"></iframe> -->
+
 **Use Case 2:**
 Your car was recently vandalized and you cant afford more vehicle repairs. You have to show up for work at McDonald’s to work a night shift during the weekend - it’s the 1st of april 2018 in the time period 22:00-6:00. You’re allowed to choose which McDonald's store you want to work at in Brooklyn. You suffer from bad arthritis and thus have trouble walking further than 1 mile. 
 Your usual spot at the nearby paid parking lot is completely full, and the next closest paid porking lot is too far away. Separately from your car being vandalized or stolen, you are afraid of assault and burglary. Where should you park on the street?
