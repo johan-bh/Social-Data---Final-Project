@@ -30,39 +30,37 @@ Donec rutrum ex vitae augue condimentum tristique. Pellentesque rutrum nec risus
 
 <iframe src="heatmap.html" width="100%" height="800px"></iframe>
 
+<br/><br/><br/>
+
+### UrbanShield NYC - Your Essential Navigation Partner for Safety in New York City
+
+Introducing **UrbanShield NYC**, a pioneering navigation solution tailored for New York City dwellers and business owners. This tool enhances urban mobility by integrating historical crime data with data analysis and advanced navigation tools to provide optimized and safe travel routes and locations. Whether you need to navigate the city late at night or are looking to relocate your business, UrbanShield NYC is designed to assist in planning safer journeys and making informed location decisions.
+
+UrbanShield NYC is still in the prototype phase but shows promising potential for future development and scalability. Explore how UrbanShield NYC addresses two distinct needs through the following use cases:
 
 
-### Explore Safely with STP - Your Safe Travel Planner for New York City
+#### Use Case 1: Getting home safe in the night
+You are a man/woman leaving a lavish party at “X” bar in downtown Manhattan. Its 01:30 on a chilly Friday 13th. After a night of celebrating and spending all your cash on drinks, you find yourself unable to afford a taxi home to  “address”, Bronx. The thought of walking home alone, with the possibility of assault or harassment from “dark figures in the night” scares you. Getting home safely is your main concern. Luckily, group 17 of the Social Viz course has developed an safe travel planner that enables users to find a safe route home. In the interactive map below the user can enter the time of day, day of week as well as navigational inputs which yields a route suggestion drawn on a heatmap of Robbery, Felony Assaul, and Rape - crimes we envision most individuals want to steer clear of on their way home from a part.
 
-Introducing the STP model, a practical solution designed to enhance urban navigation for New York City residents. As a prototype poised for future development, the Safe Travel Planner offers a strategic approach to travel, combining safety with convenience. This tool is tailored to help users plan their journeys effectively, integrating historic data and machine learning to avoid hazards and optimize travel routes.
-
-STP is still a prototype but could be built to scale in the future. Consider the following two scenarios, which illustrate just how versatile and necessary the STP can be for different individuals:
-
-
-**Use Case 1:**  
-You are a 20yr woman leaving a lavish bachelorette party at “X” bar in downtown Manhattan. Its 01:30 on a chilly Friday 13th May 2018. After a night of celebrating and spending all your cash on drinks, you find yourself unable to afford a taxi home to  “address”, Bronx. The thought of walking home alone, with the possibility of assault or harassment from “dark figures in the night” scares you. Getting home safely is your main concern. Luckily you have your travel card with you.
-Suggest a travel route which avoids certain high-risk areas. 
-
-The focus crimes are given by the user
-User: particularly afraid of X crimes {rape, harrasment 1, etc}
-
-Suggestions like 
-    - Don't take the subway from this station, but instead {bus, walk}
-    - Avoid this street and intersection
-    - Walk on main streets (with good lighting?) instead of alleyways
-
-(We have Suspect {AgeGroup, Race, Sex}, as well as Victim {AgeGroup, Race, Sex} for at least like 30%)
-
+**How to use the UrbanShield Navigator:** 
+- Adjust time accordingly
+- Enter start (e.g. "Lower East Side, NYC") and destination address (e.g "Upper East Side, NYC) - specific addresses works just fine too
+- Click draw route
+- Drag route to avoid hotspots or change start/end location
 
 <iframe src="/heatmap2.html" style="width:100%; height:600px;" frameborder="0"></iframe>
 <br/>
 
 
 
-**Use Case 2:**
-Your car was recently vandalized and you cant afford more vehicle repairs. You have to show up for work at McDonald’s to work a night shift during the weekend - it’s the 1st of april 2018 in the time period 22:00-6:00. You’re allowed to choose which McDonald's store you want to work at in Brooklyn. You suffer from bad arthritis and thus have trouble walking further than 1 mile. 
-Your usual spot at the nearby paid parking lot is completely full, and the next closest paid porking lot is too far away. Separately from your car being vandalized or stolen, you are afraid of assault and burglary. Where should you park on the street?
+#### Use Case 2: Finding a good business location
 
+A business owner, having experienced repeated vandalism at their current location, is exploring new locations for their business in New York City. Their priority is to find an area with lower crime rates to ensure the safety and security of the business. This decision-making process involves scouting various neighborhoods across NYC, comparing historical crime statistics, and considering factors like accessibility and visibility to minimize future risks of vandalism or theft. The goal is to identify a location that not only promises a thriving business environment but also ensures a safe space for their operations. We can help business owners avoid hotspots for crimes commited towards businesses.
 
-What part of Bronx?
-- Suggest parking area
+**How to use the UrbanShield Business Locator:**
+- Adjust year accordingly
+- Select 1 to 3 crimes of interest
+- Use the heatmap to place the marker at different possible locations
+- Zoom and interact with the map to investigate further
+
+<iframe src="/usecase2.html" style="width:100%; height:600px;" frameborder="0"></iframe>
