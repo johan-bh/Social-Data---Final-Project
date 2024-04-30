@@ -10,17 +10,15 @@ title: Home
 
 
 
-### Intro to the data
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a bibendum arcu. Donec sodales lorem dui, vitae vehicula augue rhoncus vitae. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus vel mollis diam, non pellentesque purus. Aliquam id dui consequat, posuere est ut, rutrum augue. Nullam sit amet ornare neque. Nunc urna felis, vestibulum eu varius sed, elementum vel turpis. Nunc ante magna, venenatis ultrices arcu sit amet, mollis auctor eros.
+### Intro to the datastory
 
-Donec rutrum ex vitae augue condimentum tristique. Pellentesque rutrum nec risus sed luctus. Quisque laoreet est in blandit ullamcorper. Aliquam erat volutpat. Nullam luctus sodales sapien fermentum posuere. Quisque dapibus massa a mi dignissim elementum. Fusce ultrices purus at dapibus lobortis. Vivamus accumsan est vitae varius iaculis. Ut eu blandit est, ut egestas enim. Etiam feugiat vitae ipsum sit amet consectetur. Proin ante lacus, aliquet at vestibulum eu, venenatis sed orci. Donec volutpat iaculis sapien, et maximus libero venenatis eget. Nulla ornare mauris vel porta feugiat.
+Have you ever felt unsafe walking alone at night in New York City? Or perhaps you have been a victim of a crime and wish to know how to avoid the risks of it happening again? With the rise in crime rates in urban areas, it is more important than ever to be aware of the potential dangers and take steps to protect yourself. In this datastory we will explore the crime data in New York City and provide insights that can help you make informed decisions about your safety, whether you are a resident or a visitor to New York City. 
 
+In this datastory we will use the NYPD Complaint Data Historic dataset to analyze crime patterns in New York City and identify high-risk areas and times. We will also explore the socio-economic factors that may contribute to crime rates in different neighborhoods. By understanding these patterns and trends, we can help you navigate the city safely and make informed decisions about your safety by providing you with a Safe Travel Planner (STP) that can help you avoid high-risk areas and optimize your travel routes. The NYPD Complaint Data Historic dataset [original dataset](https://data.cityofnewyork.us/d/qgea-i56i?category=Public-Safety&view_name=NYPD-Complaint-Data-Historic) from the [NYC Open Data](https://opendata.cityofnewyork.us/) website, contains all valid felony, misdemeanor, and violation crimes reported in New York City between the start of 2006 and April 2024. It covers a wide range of crimes types and severity, location, date, time, victim and suspect demographics, and more. 
 
 
 ### Data Visualizations: Focus Crimes
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a bibendum arcu. Donec sodales lorem dui, vitae vehicula augue rhoncus vitae. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus vel mollis diam, non pellentesque purus. Aliquam id dui consequat, posuere est ut, rutrum augue. Nullam sit amet ornare neque. Nunc urna felis, vestibulum eu varius sed, elementum vel turpis. Nunc ante magna, venenatis ultrices arcu sit amet, mollis auctor eros.
-
-Donec rutrum ex vitae augue condimentum tristique. Pellentesque rutrum nec risus sed luctus. Quisque laoreet est in blandit ullamcorper. Aliquam erat volutpat. Nullam luctus sodales sapien fermentum posuere. Quisque dapibus massa a mi dignissim elementum. Fusce ultrices purus at dapibus lobortis. Vivamus accumsan est vitae varius iaculis. Ut eu blandit est, ut egestas enim. Etiam feugiat vitae ipsum sit amet consectetur. Proin ante lacus, aliquet at vestibulum eu, venenatis sed orci. Donec volutpat iaculis sapien, et maximus libero venenatis eget. Nulla ornare mauris vel porta feugiat. Proin sed lobortis ante. Fusce imperdiet quam non augue placerat cursus. Sed dapibus a nunc id pellentesque.
 
 
 ### Socio Economic Overlays
