@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Heatmap</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Prevents scrolling of the whole page */
+        }
+        #controls-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            /* place the container at the bottom */
+
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+            gap: 10px;
+            background: rgba(244, 244, 244, 0.9); /* Semi-transparent background */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 1001;
+        }
+        #map-container {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+        }
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+        .input-group {
+            width: 100%;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map-container">
+        <div id="map"></div>
+
+        <!-- Top-right controls for slider and dropdowns -->
+        <div id="top-right-controls" style="position: absolute; top: 10px; left: 50px; background: rgba(244, 244, 244, 0.9); padding: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 1000;">
+            <div>
+                <input type="range" min="0" max="23" value="22" class="slider" id="hourSlider">
+                <p>Time: <span id="sliderValue">22</span>:00</p>
+            </div>
+            <div>
+                <label for="weekdaySelector">Select Weekday:</label>
+                <select id="weekdaySelector">
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                </select>
+            </div>
+            <div>
+                <label for="sexSelector">Select Victim Sex:</label>
+                <select id="sexSelector">
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Bottom-left controls for input fields -->
+        <div id="bottom-left-controls" style="position: absolute; bottom: 20px; left: 10px; display: flex; gap: 15px; background: rgba(244, 244, 244, 0.9); padding: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 1000;">
+            <input type="text" id="start" placeholder="Starting point">
+            <input type="text" id="end" placeholder="Destination">
+            <button onclick="drawRoute()">Draw Route</button>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    
+
+    <script>
+        var map = L.map('map').setView([40.748817, -73.985428], 11);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+
+        var heatLayer = L.heatLayer([], {
+            radius: 25,      // Adjust as needed
+            blur: 10,        // Adjust as needed
+            maxZoom: 18,
+            max: 100.0         // Adjust as needed
+        }).addTo(map);
+
+        function updateHeatmap(hour, weekday, sex) {
+            fetch('data2.json')
+                .then(response => response.json())
+                .then(data => {
+                    // Filter based on selected hour, weekday, and sex
+                    var filteredData = data.filter(d => d.hour === hour && d.weekday === weekday && d.Victim_Sex === sex);
+                    var heatData = filteredData.map(d => [d.lat, d.lon, 100]);
+                    heatLayer.setLatLngs(heatData);
+                })
+                .catch(error => console.error('Error loading the data:', error));
+        }
+
+        // Update the heatmap when the slider value changes
+        var hourSlider = document.getElementById('hourSlider');
+        var weekdaySelector = document.getElementById('weekdaySelector');
+        var sexSelector = document.getElementById('sexSelector');
+
+        function updateHeatmapFromInputs() {
+            var hour = parseInt(hourSlider.value);
+            var weekday = weekdaySelector.value;
+            var sex = sexSelector.value;
+
+            document.getElementById('sliderValue').textContent = hour;
+            updateHeatmap(hour, weekday, sex);
+        }
+
+        hourSlider.oninput = updateHeatmapFromInputs;
+        weekdaySelector.onchange = updateHeatmapFromInputs;
+        sexSelector.onchange = updateHeatmapFromInputs;
+
+        // Initial load
+        updateHeatmapFromInputs();
+
+        function getCoordinates(address) {
+    return fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${address}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.length > 0) {
+                return [data[0].lat, data[0].lon];
+            } else {
+                throw new Error('No results found');
+            }
+        });
+}
+
+
+function drawRoute() {
+    var startInput = document.getElementById('start').value;
+    var endInput = document.getElementById('end').value;
+    var hour = parseInt(document.getElementById('hourSlider').value);
+
+    // Create an ISO date string with the current date and the selected hour from the slider
+    var currentDate = new Date();
+    currentDate.setHours(hour, 0, 0, 0); // Set hours, minutes, seconds, milliseconds
+    var isoDate = currentDate.toISOString();
+    console.log('Depart at ISO date:', isoDate);
+
+
+    Promise.all([getCoordinates(startInput), getCoordinates(endInput)])
+        .then(function(values) {
+            var startPoint = L.latLng(values[0]);
+            var endPoint = L.latLng(values[1]);
+
+            // Remove the existing routing control, if it exists
+            if (window.routingControl) {
+                map.removeControl(window.routingControl);
+            }
+
+            // Initialize the routing control with the departure time
+            window.routingControl = L.Routing.control({
+                waypoints: [startPoint, endPoint],
+                routeWhileDragging: true,
+                router: L.Routing.mapbox('pk.eyJ1Ijoiam9oYW5iOTkiLCJhIjoiY2x2bDR3aGt1MDNlbzJpcGU2N3JkZDA1bSJ9.egahaIuapmyBKG-HpxkeUQ', {
+                    profile: 'mapbox/cycling',
+                    // Include the departure time in the request
+                    options: {
+                        departAt: isoDate,// This sets the departure time
+                        exclude: ['toll', 'motorway', 'ferry', 'cash_only_tolls']
+                    },
+                }),
+                // your other options...
+            }).addTo(map);
+
+        }).catch(function(error) {
+            alert(error.message);
+        });
+}
+
+
+
+    </script>
+</body>
+</html>

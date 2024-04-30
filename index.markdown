@@ -28,7 +28,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a bibendum ar
 
 Donec rutrum ex vitae augue condimentum tristique. Pellentesque rutrum nec risus sed luctus. Quisque laoreet est in blandit ullamcorper. Aliquam erat volutpat. Nullam luctus sodales sapien fermentum posuere. Quisque dapibus massa a mi dignissim elementum. Fusce ultrices purus at dapibus lobortis. Vivamus accumsan est vitae varius iaculis. Ut eu blandit est, ut egestas enim. Etiam feugiat vitae ipsum sit amet consectetur. Proin ante lacus, aliquet at vestibulum eu, venenatis sed orci. Donec volutpat iaculis sapien, et maximus libero venenatis eget. Nulla ornare mauris vel porta feugiat. Proin sed lobortis ante. Fusce imperdiet quam non augue placerat cursus. Sed dapibus a nunc id pellentesque.
 
-<iframe src="heatmap.html" width="100%" height="600px"></iframe>
+<iframe src="heatmap.html" width="100%" height="800px"></iframe>
 
 
 
@@ -39,7 +39,7 @@ Introducing the STP model, a practical solution designed to enhance urban naviga
 STP is still a prototype but could be built to scale in the future. Consider the following two scenarios, which illustrate just how versatile and necessary the STP can be for different individuals:
 
 
-**Use Case 1:** 
+**Use Case 1:**  
 You are a 20yr woman leaving a lavish bachelorette party at “X” bar in downtown Manhattan. Its 01:30 on a chilly Friday 13th May 2018. After a night of celebrating and spending all your cash on drinks, you find yourself unable to afford a taxi home to  “address”, Bronx. The thought of walking home alone, with the possibility of assault or harassment from “dark figures in the night” scares you. Getting home safely is your main concern. Luckily you have your travel card with you.
 Suggest a travel route which avoids certain high-risk areas. 
 
@@ -54,7 +54,10 @@ Suggestions like
 (We have Suspect {AgeGroup, Race, Sex}, as well as Victim {AgeGroup, Race, Sex} for at least like 30%)
 
 
-<!-- <iframe src="index.html" width="100%" height="600px"></iframe> -->
+<iframe src="/heatmap2.html" style="width:100%; height:600px;" frameborder="0"></iframe>
+<br/>
+
+
 
 **Use Case 2:**
 Your car was recently vandalized and you cant afford more vehicle repairs. You have to show up for work at McDonald’s to work a night shift during the weekend - it’s the 1st of april 2018 in the time period 22:00-6:00. You’re allowed to choose which McDonald's store you want to work at in Brooklyn. You suffer from bad arthritis and thus have trouble walking further than 1 mile. 
