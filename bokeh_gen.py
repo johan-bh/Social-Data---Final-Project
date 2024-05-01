@@ -8,6 +8,8 @@ from bokeh.transform import dodge
 from bokeh.palettes import Viridis3
 import warnings
 
+# this script generates the interactive bokeh plot
+
 warnings.filterwarnings('ignore')
 
 # Define path and load data
@@ -82,5 +84,5 @@ select_month.js_on_change('value', CustomJS(args=dict(source=source, full_source
 layout = column(select_month, radio_button_group, p)
 
 # Output the plot
-output_file("interactive_plot.html", title="Interactive Bokeh Plot without Server")
+output_file("interactive_plot_bokeh.html", title="Interactive Bokeh Plot")
 save(layout, resources=CDN)
