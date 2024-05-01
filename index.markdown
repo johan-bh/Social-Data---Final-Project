@@ -22,9 +22,23 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a bibendum ar
 
 
 ### Socio Economic Overlays
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a bibendum arcu. Donec sodales lorem dui, vitae vehicula augue rhoncus vitae. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus vel mollis diam, non pellentesque purus. Aliquam id dui consequat, posuere est ut, rutrum augue. Nullam sit amet ornare neque. Nunc urna felis, vestibulum eu varius sed, elementum vel turpis. Nunc ante magna, venenatis ultrices arcu sit amet, mollis auctor eros.
+On a more general note, we wish to emphasize that this should not be viewed solely as a critique of the individuals who commit such crimes. A significant body of research has demonstrated that increases in criminal activity are strongly linked to socio-economic factors. For example, a paper published in the Journal of Economic Structures in 2020, titled "Dynamic Linkages between Poverty, Inequality, Crime, and Social Expenditures in a Panel of 16 Countries: Two-Step GMM Estimates," establishes a causal relationship between poverty and crime. Similarly, a paper by a Ph.D. student at the University of Texas Rio Grande Valley, titled "Education and Crime," underscores the link between lower educational levels and increased criminal activity.
 
-Donec rutrum ex vitae augue condimentum tristique. Pellentesque rutrum nec risus sed luctus. Quisque laoreet est in blandit ullamcorper. Aliquam erat volutpat. Nullam luctus sodales sapien fermentum posuere. Quisque dapibus massa a mi dignissim elementum. Fusce ultrices purus at dapibus lobortis. Vivamus accumsan est vitae varius iaculis. Ut eu blandit est, ut egestas enim. Etiam feugiat vitae ipsum sit amet consectetur. Proin ante lacus, aliquet at vestibulum eu, venenatis sed orci. Donec volutpat iaculis sapien, et maximus libero venenatis eget. Nulla ornare mauris vel porta feugiat. Proin sed lobortis ante. Fusce imperdiet quam non augue placerat cursus. Sed dapibus a nunc id pellentesque.
+As a collective, we have used data on poverty and total enrollment counts from various boroughs in NYC between 2013 and 2018 to highlight social issues that may be contributing to the crime rate we are observing. Initially, we explored the relationship between early total enrollment in educational institutions and the number of individuals living in poverty by fitting a linear regression model, with poverty as the dependent variable. Furthermore, the correlation coefficient between these two variables was calculated to be 0.9827. These calculations were conducted in hopes of illustrating a connection between two social issues that, as described in the referenced papers, are seen as catalysts for higher criminal activity.
+
+<iframe src="Linear_fit_EP.png" width="100%" heaight="800px"></iframe>
+
+The linear fit, with an R^2 value of 0.92, shows a strong linear relationship between the variables. Moreover, the occurrence and probability of poverty can be visualized by the following bar plots:
+
+<iframe src="P_poverty.png" width="100%" height="800px"></iframe>
+<iframe src="P_poverty_norm.png" width="100%" height="800px"></iframe>
+The first bar plot depicts the proportion of individuals living below the poverty line in the various boroughs, and the normalized plot is created for comparative purposes. Apart from the Bronx and Brooklyn having the two highest probabilities of an individual being under the poverty line, a general trend regarding poverty in NYC's boroughs becomes quite clear. None of the boroughs hold a poverty percentage below 50%, which is predominantly higher when compared to the average European country — see (https://www.euro.centre.org/downloads/detail/1302) for reference.
+
+Naturally, this should be compared against the number of reported crimes per citizen in each borough for comparative reasons.
+
+<iframe src="Crimes_per_ind.png" width="100%" height="800px"></iframe>
+
+Here, we see that the Bronx and Brooklyn have the first and third highest crimes per individual in their respective boroughs. This trend largely follows the earlier referenced papers when compared to the highlighted social data analysis for poverty and total enrollment.
 
 <iframe src="heatmap.html" width="100%" height="800px"></iframe>
 
