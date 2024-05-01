@@ -34,11 +34,13 @@ The linear fit, with an R^2 value of 0.92, shows a strong linear relationship be
 <iframe src="P_poverty_norm.png" width="100%" height="800px"></iframe>
 The first bar plot depicts the proportion of individuals living below the poverty line in the various boroughs, and the normalized plot is created for comparative purposes. Apart from the Bronx and Brooklyn having the two highest probabilities of an individual being under the poverty line, a general trend regarding poverty in NYC's boroughs becomes quite clear. None of the boroughs hold a poverty percentage below 50%, which is predominantly higher when compared to the average European country — see (https://www.euro.centre.org/downloads/detail/1302) for reference.
 
-Naturally, this should be compared against the number of reported crimes per citizen in each borough for comparative reasons.
+Naturally, this should be compared against the number of reported crimes per citizen in each borough.
 
 <iframe src="Crimes_per_ind.png" width="100%" height="800px"></iframe>
 
 Here, we see that the Bronx and Brooklyn have the first and third highest crimes per individual in their respective boroughs. This trend largely follows the earlier referenced papers when compared to the highlighted social data analysis for poverty and total enrollment.
+
+This segment hereby highlights potential socially-themed societal problems that may underlie the crime-specific issues this page addresses. We hope this will broaden the users' understanding and potentially reduce prejudice regarding the issue which we call crime.
 
 <iframe src="heatmap.html" width="100%" height="800px"></iframe>
 
