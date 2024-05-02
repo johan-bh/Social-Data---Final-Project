@@ -16,3 +16,10 @@ header p {
 h1,h2,h3,h4,h5,h6 {
   text-align: center !important;
 }
+
+img {
+  max-width: 100%; /* ensures the image is never larger than its container */
+  height: auto; /* maintains the aspect ratio */
+  display: block; /* removes extra space below the image */
+  margin: 0 auto; /* centers the image horizontally */
+}

@@ -26,23 +26,28 @@ On a more general note, we wish to emphasize that this should not be viewed sole
 
 As a collective, we have used data on poverty and total enrollment counts from various boroughs in NYC between 2013 and 2018 to highlight social issues that may be contributing to the crime rate we are observing. Initially, we explored the relationship between early total enrollment in educational institutions and the number of individuals living in poverty by fitting a linear regression model, with poverty as the dependent variable. Furthermore, the correlation coefficient between these two variables was calculated to be 0.9827. These calculations were conducted in hopes of illustrating a connection between two social issues that, as described in the referenced papers, are seen as catalysts for higher criminal activity.
 
-<iframe src="Linear_fit_EP.png" width="100%" heaight="800px"></iframe>
+<!-- Replace the iframe with this img tag -->
+<img src="Linear_fit_EP.png" alt="Linear Fit Plot" style="width:100%; height:auto;">
+
 
 The linear fit, with an R^2 value of 0.92, shows a strong linear relationship between the variables. Moreover, the occurrence and probability of poverty can be visualized by the following bar plots:
 
-<iframe src="P_poverty.png" width="100%" height="800px"></iframe>
-<iframe src="P_poverty_norm.png" width="100%" height="800px"></iframe>
+<img src="P_poverty.png" width="100%"></img>
+
+<br/><br/>
+
+<img src="P_poverty_norm.png" width="100%"></img>
 The first bar plot depicts the proportion of individuals living below the poverty line in the various boroughs, and the normalized plot is created for comparative purposes. Apart from the Bronx and Brooklyn having the two highest probabilities of an individual being under the poverty line, a general trend regarding poverty in NYC's boroughs becomes quite clear. None of the boroughs hold a poverty percentage below 50%, which is predominantly higher when compared to the average European country — see (https://www.euro.centre.org/downloads/detail/1302) for reference.
 
 Naturally, this should be compared against the number of reported crimes per citizen in each borough.
 
-<iframe src="Crimes_per_ind.png" width="100%" height="800px"></iframe>
+<img src="Crimes_per_ind.png" width="100%"></img>
 
 Here, we see that the Bronx and Brooklyn have the first and third highest crimes per individual in their respective boroughs. This trend largely follows the earlier referenced papers when compared to the highlighted social data analysis for poverty and total enrollment.
 
 This segment hereby highlights potential socially-themed societal problems that may underlie the crime-specific issues this page addresses. We hope this will broaden the users' understanding and potentially reduce prejudice regarding the issue which we call crime.
 
-<iframe src="heatmap.html" width="100%" height="800px"></iframe>
+<!-- <iframe src="heatmap.html" width="100%" height="800px"></iframe> -->
 
 <br/><br/><br/>
 
