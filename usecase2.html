@@ -84,16 +84,22 @@ $(document).ready(function() {
         max: 1.0 // This can be adjusted based on the data density and visual requirements
     }).addTo(map);
 
-    var marker = L.marker([40.748817, -73.985428], {
-        draggable: 'true'  // Enables the marker to be dragged
-    }).addTo(map);
+    // Define locations for the markers
+    landmark_coordinates = [
+    [40.748817, -73.985428], 
+    [40.689247, -74.044502], 
+    [40.752726, -73.977229], 
+    [40.706086, -73.996864], 
+    [40.785091, -73.968285]  
+    ];
 
-    marker.on('dragend', function(e) {
-    var position = marker.getLatLng(); // Gets the new position after the drag ends
-    var lat = position.lat.toFixed(5); // Formats latitude to 5 decimal places
-    var lng = position.lng.toFixed(5); // Formats longitude to 5 decimal places
-    marker.setLatLng(position, {draggable: 'true'}).bindPopup('Potential Business Location: (' + lat + ', ' + lng + ')').openPopup();
-});
+
+    // Loop through the locations and create a marker for each one
+    locations.forEach(function(location, index) {
+        L.marker(location, {
+            draggable: 'true'  // Enables the marker to be dragged
+        }).addTo(map).bindPopup('Business Location ' + (index + 1));
+    });
 
     function updateHeatmap(year, crimeTypes) {
         fetch('data_usecase2.json')
