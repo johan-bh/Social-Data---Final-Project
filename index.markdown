@@ -27,7 +27,7 @@ On a more general note, we wish to emphasize that this should not be viewed sole
 As a collective, we have used data on poverty and total enrollment counts from various boroughs in NYC between 2013 and 2018 to highlight social issues that may be contributing to the crime rate we are observing. Initially, we explored the relationship between early total enrollment in educational institutions and the number of individuals living in poverty by fitting a linear regression model, with poverty as the dependent variable. Furthermore, the correlation coefficient between these two variables was calculated to be 0.9827. These calculations were conducted in hopes of illustrating a connection between two social issues that, as described in the referenced papers, are seen as catalysts for higher criminal activity.
 
 <!-- Replace the iframe with this img tag -->
-<img src="Linear_fit_EP.png" alt="Linear Fit Plot" style="width:100%; height:auto;">
+<img src="Linear_fit_EP.png" alt="Linear Fit Plot" style="width:100%; height:auto;"><img>
 
 
 The linear fit, with an R^2 value of 0.92, shows a strong linear relationship between the variables. Moreover, the occurrence and probability of poverty can be visualized by the following bar plots:
