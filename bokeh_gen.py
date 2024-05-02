@@ -17,7 +17,7 @@ path = '/Users/benjaminfazal/Desktop/Skole/Kandidat/Semester_1/Social_data/'
 data = pd.read_csv(path + 'NYPD_Complaint_Data_Cleaned.csv')
 
 # Focus crimes: FELONY ASSAULT, ROBBERY, RAPE
-crime_types = ['FELONY ASSAULT', 'ROBBERY', 'RAPE']
+crime_types = ['FRAUDS', 'CRIMINAL TRESPASS', 'FORGERY']
 df_focus = data[data['Offense_Description'].isin(crime_types)]
 
 # Generate descriptive statistics
@@ -84,5 +84,5 @@ select_month.js_on_change('value', CustomJS(args=dict(source=source, full_source
 layout = column(select_month, radio_button_group, p)
 
 # Output the plot
-output_file("interactive_plot_bokeh.html", title="Interactive Bokeh Plot")
+output_file("interactive_plot_bokeh_case2.html", title="Interactive Bokeh Plot")
 save(layout, resources=CDN)
