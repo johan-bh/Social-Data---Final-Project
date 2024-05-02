@@ -1,135 +1,292 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <title>Interactive Business Location Map</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <link href="https://cdn.jsdelivr.net/npm/select2/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2/dist/js/select2.min.js"></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
     <style>
-        #map { height: 98vh; width: 100%;}
-        body {
-        overflow: hidden; /* Hide scrollbars */
-        }
-        
-        #map-container {
-            position: relative;
-            width: 100%;
-            height: 100vh; /* Full viewport height */
-        }
-        .select2-container--default .select2-selection--multiple {
+    #map { height: 98vh; width: 100%; }
+    #slideDisplay { display: inline-block;}
+    /* for all styles: font,size, and font weight */
+    *{font-size: 14px !important;
+    font-weight: bold;
+    font-family:'sans-serif';}
+    body { overflow: hidden; color: black !important;}
+    #map-container { position: relative; width: 100%; height: 100vh; }
+    #toggleFeature, #featureSelector {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        z-index: 1500; /* Ensure a high z-index */
+        padding: 4px 8px;
         border: 1px solid #ccc;
-        cursor: pointer;
-        outline: none;
+        border-radius: 4px; /* Rounded corners */;
+        background: rgba(244, 244, 244, 0.9);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+
+    .select2-container--default.select2-container--focus .select2-selection--multiple {
+        padding-left: 10px !important;
+    }
+
+    #crimeSelector { width: 100%; }
+
+    #toggleFeature { top: 40px; margin-top: 10px; padding: 4px 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px; /* Rounded corners */} /* Position the button below the selector */
+
+    #top-right-controls {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    width: 278px;
+    background: rgba(244, 244, 244, 0.9);
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+
+    /* Specific styles for the year slider to make it fit in a flexbox layout */
+    #slider-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #yearSlider {
+        flex-grow: 1;
+        margin: 10px 10px;
+    }
+
+    #sliderValue, #sliderText{
+        min-width: 40px; /* Adjusted for spacing */
+        display: inline-block; /* Keeps the label and value on the same line */
+        /* padding-bottom: 10px; */
+    }
+
+    .select2-dropdown {
+        border-radius: 4px; /* Rounded corners on dropdown */
+        margin-top: 5px; /* Spacing between the dropdown and the select */
+    }
+
+    /* Button specific styles */
+    #toggleFeature {
+        cursor: pointer; /* Indicates that the button is clickable */
+        text-align: center; /* Center the text inside the button */
+    }
+
+
+</style>
 
     </style>
 </head>
 <body>
     <div id="map-container">
         <div id="map"></div>
+    <!-- HTML to select different socioeconomic features -->
+    <select id="featureSelector">
+        <!-- ['Pop1', 'Male P', 'MdAge', 'PopU18P', 'Pop65plP','PopAcre', 'Hsp1P', 'WNHP', 'BNHP',	'ANHP',	'ONHP', 'TwoPlNHP', 'HmOwnVcRt', 'RntVcRt', 'AvgHHSz'] -->
+        <option value="" disabled selected>Select Socioeconomic Feature</option>
+        <option value="Pop1">Population</option>
+        <option value="Male P">Male (Pct)</option>
+        <option value="Hsp1P">Hispanic (Pct)</option>
+        <option value="PopU18P">Population Under 18 (Pct)</option>
+        <option value="Pop65plP">Population 65+ (Pct)</option>
+        <option value="PopAcre">Population per Acre</option>
+        <option value="MdAge">Median Age</option>
+        <option value="WNHP">White Non-Hispanic (Pct)</option>
+        <option value="BNHP">Black Non-Hispanic (Pct)</option>
+        <option value="ANHP">Asian Non-Hispanic (Pct)</option>
+        <option value="ONHP">Other Non-Hispanic (Pct)</option>
+        <option value="TwoPlNHP">Non-Hispanic of two or more races (Pct)</option>
+        <option value="HmOwnVcRt">Homeowner vacancy rate (Pct)</option>
+        <option value="RntVcRt">Rental vacancy rate (Pct)</option>
+        <option value="AvgHHSz">Average Household Size</option>
 
-        <!-- Top-right controls for slider and dropdowns -->
-        <div id="top-right-controls" style="position: absolute; top: 10px; left: 50px; width: 340px; background: rgba(244, 244, 244, 0.9); padding: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 1000;">
-            <div>
-                <input type="range" min="2006" max="2021" value="2021" class="slider" id="yearSlider">
-                <p>Year: <span id="sliderValue">2020</p>
-            </div>
-            <div>
-                <!-- {"ROBBERY": 0, "POSSESSION OF STOLEN PROPERTY": 1, "PETIT LARCENY": 2, "CRIMINAL MISCHIEF & RELATED OF": 3, "BURGLARY": 4, "CRIMINAL TRESPASS": 5, 
-                    "GRAND LARCENY": 6, "GRAND LARCENY OF MOTOR VEHICLE": 7, "OFFENSES INVOLVING FRAUD": 8} -->
-                <label for="crimeSelector">Select Crime:</label>
-                <select id="crimeSelector" multiple="multiple">
-                    <option value="0">ROBBERY</option>
-                    <option value="1">POSSESSION OF STOLEN PROPERTY</option>
-                    <option value="2">PETIT LARCENY</option>
-                    <option value="3">CRIMINAL MISCHIEF & RELATED OF</option>
-                    <option value="4">BURGLARY</option>
-                    <option value="5">CRIMINAL TRESPASS</option>
-                    <option value="6">GRAND LARCENY</option>
-                    <option value="7">GRAND LARCENY OF MOTOR VEHICLE</option>
-                    <option value="8">OFFENSES INVOLVING FRAUD</option>
-                </select>
-                
-                
-            </div>
+    </select>
+
+    <button id="toggleFeature">Toggle Feature</button>
+    
+
+    <div id="top-right-controls">
+        <div id="slider-container">
+            <label id="sliderText" for="yearSlider">Year:</label>
+            <input type="range" id="yearSlider" class="slider" min="2019" max="2022" value="2022">
+            <span id="sliderValue">2022</span>
         </div>
+        <select id="crimeSelector" multiple="multiple">
+            <option value="0">ROBBERY</option>
+            <option value="1">POSSESSION OF STOLEN PROPERTY</option>
+            <option value="2">PETIT LARCENY</option>
+            <option value="3">CRIMINAL MISCHIEF & RELATED OF</option>
+            <option value="4">BURGLARY</option>
+            <option value="5">CRIMINAL TRESPASS</option>
+            <option value="6">GRAND LARCENY</option>
+            <option value="7">GRAND LARCENY OF MOTOR VEHICLE</option>
+            <option value="8">OFFENSES INVOLVING FRAUD</option>
+        </select>
     </div>
     
-<script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
-<script>
+    </div>
+    </div>
 
-$(document).ready(function() {
-    $('#crimeSelector').select2({
-        placeholder: "Select crimes",
-        allowClear: true,
-        width: '100%',
-        dropdownAutoWidth: true
+    <script>
+        $(document).ready(function() {
+            var map = L.map('map').setView([40.748817, -73.985428], 10);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap'
+            }).addTo(map);
 
-    }).on('change', function() {
-        updateHeatmapFromInputs();
-    });
+            var landmarks = [
+            [40.748817, -73.985428],  // Empire State Building
+            [40.689247, -74.044502],  // Statue of Liberty
+            [40.752726, -73.977229],  // Grand Central Station
+            [40.706086, -73.996864],  // Brooklyn Bridge
+            [40.785091, -73.968285]   // Central Park
+        ];
 
-    var map = L.map('map').setView([40.748817, -73.985428], 12);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap'
-    }).addTo(map);
+            // Loop through the locations and create a marker for each one
+            landmarks.forEach(function(location, index) {
+                var marker = L.marker(location, {
+                    draggable: 'true'  // Allows the marker to be dragged
+                }).addTo(map).bindPopup('Potential Business Location #' + (index + 1));
 
-    var heatLayer = L.heatLayer([], {
-        radius: 5,
-        blur: 5,
-        maxZoom: 18,
-        max: 1.0 // This can be adjusted based on the data density and visual requirements
-    }).addTo(map);
+                // Open the popup immediately after creating the marker
+                marker.openPopup();
+            });
 
-    // Define locations for the markers
-    landmark_coordinates = [
-    [40.748817, -73.985428], 
-    [40.689247, -74.044502], 
-    [40.752726, -73.977229], 
-    [40.706086, -73.996864], 
-    [40.785091, -73.968285]  
-    ];
+            var heatLayer = L.heatLayer([], {
+                radius: 3,
+                blur: 3,
+                maxZoom: 17,
+                max: 1.0
+            }).addTo(map);
+    
+            var socLayers = {}; // Stores socioeconomic layers
+            var currentLayer = null; // Stores the currently visible socioeconomic layer
+            var socLayerVisible = false; // Tracks whether a socioeconomic layer is visible
+            var socData = {'Pop1': [{'borough': 'Manhattan', 'value': 1694251, 'color': '#887600'}, {'borough': 'Bronx', 'value': 1472654, 'color': '#6f8f00'}, {'borough': 'Brooklyn', 'value': 2736074, 'color': '#ff0000'}, {'borough': 'Queens', 'value': 2405464, 'color': '#d92500'}, {'borough': 'Staten Island', 'value': 495747, 'color': '#00ff00'}], 'Male P': [{'borough': 'Manhattan', 'value': 46.9, 'color': '#0fef00'}, {'borough': 'Bronx', 'value': 46.8, 'color': '#00ff00'}, {'borough': 'Brooklyn', 'value': 47.4, 'color': '#5aa400'}, {'borough': 'Queens', 'value': 48.4, 'color': '#ef0f00'}, {'borough': 'Staten Island', 'value': 48.5, 'color': '#ff0000'}], 'MdAge': [{'borough': 'Manhattan', 'value': 36.9, 'color': '#53ab00'}, {'borough': 'Bronx', 'value': 35.6, 'color': '#13eb00'}, {'borough': 'Brooklyn', 'value': 35.2, 'color': '#00ff00'}, {'borough': 'Queens', 'value': 39.1, 'color': '#bf3f00'}, {'borough': 'Staten Island', 'value': 40.4, 'color': '#ff0000'}], 'PopU18P': [{'borough': 'Manhattan', 'value': 13.7, 'color': '#00ff00'}, {'borough': 'Bronx', 'value': 23.7, 'color': '#ff0000'}, {'borough': 'Brooklyn', 'value': 21.8, 'color': '#ce3000'}, {'borough': 'Queens', 'value': 19.0, 'color': '#877700'}, {'borough': 'Staten Island', 'value': 21.5, 'color': '#c63800'}], 'Pop65plP': [{'borough': 'Manhattan', 'value': 16.7, 'color': '#df1f00'}, {'borough': 'Bronx', 'value': 13.1, 'color': '#00ff00'}, {'borough': 'Brooklyn', 'value': 13.6, 'color': '#1fdf00'}, {'borough': 'Queens', 'value': 15.6, 'color': '#9b6300'}, {'borough': 'Staten Island', 'value': 17.2, 'color': '#ff0000'}], 'PopAcre': [{'borough': 'Manhattan', 'value': 116.8, 'color': '#ff0000'}, {'borough': 'Bronx', 'value': 54.6, 'color': '#659900'}, {'borough': 'Brooklyn', 'value': 61.6, 'color': '#768800'}, {'borough': 'Queens', 'value': 34.6, 'color': '#34ca00'}, {'borough': 'Staten Island', 'value': 13.5, 'color': '#00ff00'}], 'Hsp1P': [{'borough': 'Manhattan', 'value': 23.8, 'color': '#22dc00'}, {'borough': 'Bronx', 'value': 54.8, 'color': '#ff0000'}, {'borough': 'Brooklyn', 'value': 18.9, 'color': '#00ff00'}, {'borough': 'Queens', 'value': 27.8, 'color': '#3fbf00'}, {'borough': 'Staten Island', 'value': 19.6, 'color': '#04fa00'}], 'WNHP': [{'borough': 'Manhattan', 'value': 46.8, 'color': '#cc3200'}, {'borough': 'Bronx', 'value': 8.9, 'color': '#00ff00'}, {'borough': 'Brooklyn', 'value': 35.4, 'color': '#8f6f00'}, {'borough': 'Queens', 'value': 22.8, 'color': '#4bb300'}, {'borough': 'Staten Island', 'value': 56.1, 'color': '#ff0000'}], 'BNHP': [{'borough': 'Manhattan', 'value': 11.8, 'color': '#20de00'}, {'borough': 'Bronx', 'value': 28.5, 'color': '#ff0000'}, {'borough': 'Brooklyn', 'value': 26.7, 'color': '#e61800'}, {'borough': 'Queens', 'value': 15.9, 'color': '#56a800'}, {'borough': 'Staten Island', 'value': 9.4, 'color': '#00ff00'}], 'ANHP': [{'borough': 'Manhattan', 'value': 13.0, 'color': '#5ea000'}, {'borough': 'Bronx', 'value': 4.6, 'color': '#00ff00'}, {'borough': 'Brooklyn', 'value': 13.6, 'color': '#659900'}, {'borough': 'Queens', 'value': 27.3, 'color': '#ff0000'}, {'borough': 'Staten Island', 'value': 11.9, 'color': '#52ac00'}], 'ONHP': [{'borough': 'Manhattan', 'value': 1.0, 'color': '#19e500'}, {'borough': 'Bronx', 'value': 1.3, 'color': '#3fbf00'}, {'borough': 'Brooklyn', 'value': 1.4, 'color': '#4cb200'}, {'borough': 'Queens', 'value': 2.8, 'color': '#ff0000'}, {'borough': 'Staten Island', 'value': 0.8, 'color': '#00ff00'}], 'TwoPlNHP': [{'borough': 'Manhattan', 'value': 3.7, 'color': '#d02e00'}, {'borough': 'Bronx', 'value': 1.9, 'color': '#00ff00'}, {'borough': 'Brooklyn', 'value': 4.1, 'color': '#ff0000'}, {'borough': 'Queens', 'value': 3.5, 'color': '#b94500'}, {'borough': 'Staten Island', 'value': 2.3, 'color': '#2ed000'}], 'HmOwnVcRt': [{'borough': 'Manhattan', 'value': 3.3, 'color': '#ff0000'}, {'borough': 'Bronx', 'value': 1.7, 'color': '#3cc200'}, {'borough': 'Brooklyn', 'value': 1.8, 'color': '#48b600'}, {'borough': 'Queens', 'value': 1.5, 'color': '#24da00'}, {'borough': 'Staten Island', 'value': 1.2, 'color': '#00ff00'}], 'RntVcRt': [{'borough': 'Manhattan', 'value': 6.1, 'color': '#ff0000'}, {'borough': 'Bronx', 'value': 2.7, 'color': '#00ff00'}, {'borough': 'Brooklyn', 'value': 3.5, 'color': '#3cc300'}, {'borough': 'Queens', 'value': 3.4, 'color': '#34ca00'}, {'borough': 'Staten Island', 'value': 4.4, 'color': '#7f7f00'}], 'AvgHHSz': [{'borough': 'Manhattan', 'value': 1.98, 'color': '#00ff00'}, {'borough': 'Bronx', 'value': 2.72, 'color': '#e01e00'}, {'borough': 'Brooklyn', 'value': 2.66, 'color': '#ce3000'}, {'borough': 'Queens', 'value': 2.8, 'color': '#f80600'}, {'borough': 'Staten Island', 'value': 2.82, 'color': '#ff0000'}]}
+    
+            // Load and initialize socioeconomic data layers
+            function loadSocioeconomicData() {
+                fetch('new-york-city-boroughs.geojson')
+                    .then(response => response.json())
+                    .then(data => {
+                        // Initial setup of GeoJSON layer
+                        var attributes = ['Pop1', 'Male P', 'MdAge', 'PopU18P', 'Pop65plP','PopAcre', 'Hsp1P', 'WNHP', 'BNHP',	'ANHP',	'ONHP', 'TwoPlNHP', 'HmOwnVcRt', 'RntVcRt', 'AvgHHSz'];
+                        attributes.forEach(attr => {
+                            socLayers[attr] = L.geoJson(data, {
+                                style: function(feature) {
+                                    const borough = feature.properties.name;
+                                    const attributeData = socData[attr].find(item => item.borough === borough);
+                                    return {
+                                        color: '#000',
+                                        fillColor: attributeData ? attributeData.color : '#FFFFFF',  // Default to white if no data
+                                        weight: 2,
+                                        fillOpacity: 0.5
+                                    };
+                                },
+                                onEachFeature: function(feature, layer) {
+                                    const borough = feature.properties.name;
+                                    const attributeData = socData[attr].find(item => item.borough === borough);
+                                    if (attributeData) {
+                                        layer.bindPopup(`Borough: ${borough}<br>${attr}: ${attributeData.value}`);
+                                        layer.on('mouseover', function() {
+                                            this.openPopup();
+                                        });
+                                    }
+                                }
+                            });
+                        });
+                    });
+            }
+        loadSocioeconomicData();
+    
+            // Toggle socioeconomic layers
+            document.getElementById('featureSelector').addEventListener('change', function() {
+                var selectedFeature = this.value;
+                if (currentLayer && socLayerVisible) {
+                    map.removeLayer(currentLayer);
+                    socLayerVisible = false;
+                }
+    
+                if (selectedFeature && socLayers[selectedFeature]) {
+                    currentLayer = socLayers[selectedFeature];
+                    map.addLayer(currentLayer);
+                    socLayerVisible = true;
+                }
+            });
+    
+            document.getElementById('toggleFeature').addEventListener('click', function() {
+                if (socLayerVisible && currentLayer) {
+                    map.removeLayer(currentLayer);
+                    socLayerVisible = false;
+                } else if (currentLayer) {
+                    map.addLayer(currentLayer);
+                    socLayerVisible = true;
+                }
+            });
+    
+            // Initialize crime selection
+            $('#crimeSelector').select2({
+                placeholder: "Select Crimes of interest",
+                allowClear: true,
+                width: '100%',
+                color: 'black',
+                dropdownAutoWidth: true
+            }).on('change', updateHeatmapFromInputs);
 
-
-    // Loop through the locations and create a marker for each one
-    locations.forEach(function(location, index) {
-        L.marker(location, {
-            draggable: 'true'  // Enables the marker to be dragged
-        }).addTo(map).bindPopup('Business Location ' + (index + 1));
-    });
-
-    function updateHeatmap(year, crimeTypes) {
-        fetch('data_usecase2.json')
-            .then(response => response.json())
-            .then(data => {
-                var filteredData = data.filter(d => d.Year === year && crimeTypes.includes(d.crime_id));
-                var heatData = filteredData.map(d => [d.lat, d.lon, 1]);
-                heatLayer.setLatLngs(heatData);
-            })
-            .then(() => {
-                console.log('Heatmap updated with year:', year, 'and crime types:', crimeTypes);
-            })
-            .catch(error => console.error('Error loading the data:', error));
-    }
-
-    function updateHeatmapFromInputs() {
-        var year = parseInt(yearSlider.value);
-        var selectedOptions = Array.from(crimeSelector.selectedOptions).map(option => parseInt(option.value));
-        updateHeatmap(year, selectedOptions);
-    }
-
-    yearSlider.oninput = function() {
-        document.getElementById('sliderValue').textContent = this.value;
-        updateHeatmapFromInputs();
-    };
-
-    updateHeatmapFromInputs();
-});
-
-
-</script>
+            // Update placeholder text upon any selection change
+            $('#crimeSelector').on('change', function() {
+                var selectedCount = $('#crimeSelector').select2('data').length;
+                var selectionRendered = $('#crimeSelector').next('.select2').find('.select2-selection__rendered');
+                if (selectedCount > 0) {
+                    selectionRendered.html(selectedCount + ' crime(s) selected');
+                // } else {
+                //     selectionRendered.html('Select crimes'); // show default placeholder when no items are selected
+                }
+            }).on('change', updateHeatmapFromInputs);
+    
+            function updateHeatmapFromInputs() {
+                var year = parseInt($('#yearSlider').val());
+                var selectedOptions = $('#crimeSelector').val().map(option => parseInt(option));
+                updateHeatmap(year, selectedOptions);
+            }
+    
+            function updateHeatmap(year, crimeTypes) {
+                fetch('DataUseCase2-v2.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        var filteredData = data.filter(d => d.Year === year && crimeTypes.includes(d.crime_id));
+                        var heatData = filteredData.map(d => [d.lat, d.lon, 0.5]);
+                        heatLayer.setLatLngs(heatData);
+                    })
+                    .then(() => {
+                    console.log('Heatmap updated with year:', year, 'and crime types:', crimeTypes);
+                    })
+                    .catch(error => console.error('Error loading the crime data:', error));
+            }
+    
+            // Update the year display and heatmap on slider change
+            document.getElementById('yearSlider').oninput = function() {
+                document.getElementById('sliderValue').textContent = this.value;
+                updateHeatmapFromInputs();
+            };
+    
+            updateHeatmapFromInputs();
+        });
+    </script>
+    
+        
+        
 </body>
 </html>

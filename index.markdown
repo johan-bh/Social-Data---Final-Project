@@ -74,12 +74,13 @@ You are a man/woman leaving a lavish party at “X” bar in downtown Manhattan.
 
 #### Use Case 2: Finding a good business location
 
-A business owner, having experienced repeated vandalism at their current location, is exploring new locations for their business in New York City. Their priority is to find an area with lower crime rates to ensure the safety and security of the business. This decision-making process involves scouting various neighborhoods across NYC, comparing historical crime statistics, and considering factors like accessibility and visibility to minimize future risks of vandalism or theft. The goal is to identify a location that not only promises a thriving business environment but also ensures a safe space for their operations. We can help business owners avoid hotspots for crimes commited towards businesses.
+A business owner, having experienced repeated vandalism at their current location, is exploring new locations for their business in New York City. Their priority is to find an area with lower crime rates to ensure the safety and security of the business. This decision-making process involves scouting various neighborhoods across NYC, comparing historical crime statistics, and considering factors like accessibility and visibility to minimize future risks of vandalism or theft. The goal is to identify a location that not only promises a thriving business environment but also ensures a safe space for their operations. We can help business owners avoid hotspots for crimes commited towards businesses. Furthermore, we have added a vast number of socioeconomic features on a Borough-level which might be of interest.
 
 **How to use the UrbanShield Business Locator:**
-- Adjust year accordingly
-- Select 1 to 3 crimes of interest
-- Use the heatmap to place the marker at different possible locations
+- Adjust the year accordingly on the slider in the top left corner
+- Select crimes of interest in the multiselect button in the top left corner
+- Drag the potential business markers to locations of interest
 - Zoom and interact with the map to investigate further
+- Conduct further investigations by selecting various miscellaneous socioeconomic features in the top right corner
 
 <iframe src="/usecase2.html" style="width:100%; height:600px;" frameborder="0"></iframe>

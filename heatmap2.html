@@ -55,13 +55,13 @@
             <div>
                 <label for="weekdaySelector">Select Weekday:</label>
                 <select id="weekdaySelector">
-                    <option value="Monday">Monday</option>
-                    <option value="Tuesday">Tuesday</option>
-                    <option value="Wednesday">Wednesday</option>
-                    <option value="Thursday">Thursday</option>
-                    <option value="Friday">Friday</option>
-                    <option value="Saturday">Saturday</option>
-                    <option value="Sunday">Sunday</option>
+                    <option value="0">Monday</option>
+                    <option value="1">Tuesday</option>
+                    <option value="2">Wednesday</option>
+                    <option value="3">Thursday</option>
+                    <option value="4">Friday</option>
+                    <option value="5">Saturday</option>
+                    <option value="6">Sunday</option>
                 </select>
             </div>
             <div>
@@ -97,17 +97,17 @@
 
         var heatLayer = L.heatLayer([], {
             radius: 25,      // Adjust as needed
-            blur: 10,        // Adjust as needed
+            blur: 20,        // Adjust as needed
             maxZoom: 18,
             max: 100.0         // Adjust as needed
         }).addTo(map);
 
         function updateHeatmap(hour, weekday, sex) {
-            fetch('data2.json')
+            fetch('DataUseCase1-v2.json')
                 .then(response => response.json())
                 .then(data => {
                     // Filter based on selected hour, weekday, and sex
-                    var filteredData = data.filter(d => d.hour === hour && d.weekday === weekday && d.Victim_Sex === sex);
+                    var filteredData = data.filter(d => d.hour === hour && d.day.toString() === weekday && d.sex === sex);
                     var heatData = filteredData.map(d => [d.lat, d.lon, 100]);
                     heatLayer.setLatLngs(heatData);
                 })
