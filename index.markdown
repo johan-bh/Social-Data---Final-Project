@@ -41,7 +41,7 @@ You are a man/woman leaving a lavish party at “X” bar in downtown Manhattan.
 
 For a more quantative visualization, please use the following interactive plot to get an overview of varying crimes which we deemed of high interest for your specific case. 
 
-<iframe src="/interactive_plot_bokeh_case1.html" style="width:100%; height:600px;" frameborder="0"></iframe>
+<iframe src="/interactive_plot_bokeh_case1.html" style="width:100%; height:650px;" frameborder="0"></iframe>
 
 #### Use Case 2: Finding a good business location
 
@@ -58,7 +58,7 @@ A business owner, having experienced repeated vandalism at their current locatio
 
 For a more quantative visualization, please use the following interactive plot to get an overview of varying crimes which we deemed of high interest for your specific case. 
 
-<iframe src="/interactive_plot_bokeh_case2.html" style="width:100%; height:600px;" frameborder="0"></iframe>
+<iframe src="/interactive_plot_bokeh_case2.html" style="width:100%; height:650px;" frameborder="0"></iframe>
 
 
 ### Socio Economic Overlays
