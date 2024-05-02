@@ -60,6 +60,7 @@ For a more quantative visualization, please use the following interactive plot t
 
 <iframe src="/interactive_plot_bokeh_case2.html" style="width:100%; height:600px;" frameborder="0"></iframe>
 
+
 ### Socio Economic Overlays
 On a more general note, we wish to emphasize that this should not be viewed solely as a critique of the individuals who commit such crimes. A significant body of research has demonstrated that increases in criminal activity are strongly linked to socio-economic factors. For example, a paper published in the Journal of Economic Structures in 2020, titled "Dynamic Linkages between Poverty, Inequality, Crime, and Social Expenditures in a Panel of 16 Countries: Two-Step GMM Estimates," establishes a causal relationship between poverty and crime. Similarly, a paper by a Ph.D. student at the University of Texas Rio Grande Valley, titled "Education and Crime," underscores the link between lower educational levels and increased criminal activity.
 
