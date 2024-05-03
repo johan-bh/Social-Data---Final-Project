@@ -6,6 +6,8 @@ from bokeh.io import output_file
 from bokeh.resources import CDN
 from bokeh.transform import dodge
 from bokeh.palettes import Viridis3
+import seaborn as sns
+from bokeh.colors import RGB
 import warnings
 
 warnings.filterwarnings('ignore')
@@ -15,7 +17,7 @@ path = '/Users/benjaminfazal/Desktop/Skole/Kandidat/Semester_1/Social_data/'
 data = pd.read_csv(path + 'NYPD_Complaint_Data_Cleaned.csv')
 
 # Focus crimes
-crime_types = ['FELONY ASSAULT', 'ROBBERY', 'RAPE']
+crime_types = ['FRAUDS', 'CRIMINAL TRESPASS', 'BURGLARY']
 df_focus = data[data['Offense_Description'].isin(crime_types)]
 
 # Generate descriptive statistics
@@ -42,6 +44,9 @@ p = figure(x_range=hours, title="Hourly Crime Distribution by Day",
 
 # Add bars for each crime type
 colors = Viridis3  # Adjust if you have more than 3 crime types
+sns_colors = sns.color_palette("hsv", 3)  # This generates RGB tuples
+colors = [RGB(*[int(255 * x) for x in rgb]).to_hex() for rgb in sns_colors]
+
 for idx, crime_type in enumerate(crime_types):
     p.vbar(x=dodge('hour', -0.25 + 0.25 * idx, range=p.x_range), top='count', width=0.2, source=sources[crime_type],
            color=colors[idx], legend_label=crime_type)
