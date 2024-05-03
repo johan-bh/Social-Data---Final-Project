@@ -38,6 +38,8 @@ You are a man/woman leaving a lavish party at “X” bar in downtown Manhattan.
 
 **How to use the UrbanShield Navigator:** 
 - Adjust time accordingly
+- Select your sex
+- Select the crimes that you most want to avoid
 - Enter start (e.g. "Lower East Side, NYC") and destination address (e.g "Upper East Side, NYC) - specific addresses works just fine too
 - Click draw route
 - Drag route to avoid hotspots or change start/end location
