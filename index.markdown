@@ -19,7 +19,7 @@ In this datastory we will use the NYPD Complaint Data Historic dataset to analyz
 
 ### Data Visualizations: Focus Crimes
 When travelling in New York City, certain crimes are more prominent and can pose a greater risk to your safety. To give an overview of which crimes to be aware of, we have created a bar plot showing the daily average count of 8 focus crimes in New York City.
-<img src="daily_average_crime_count.png" width="80%">
+<img src="daily_average_crime_comparison.png" width="100%">
 
 Certain crimes are more prevalent on specific hours of the day. These temporal changes are significant, as travelling at night can be more dangerous than during the day. 
 <img src="hourly_crime_counts.png" width="80%">
