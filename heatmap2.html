@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Heatmap</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2/dist/js/select2.min.js"></script>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             overflow: hidden; /* Prevents scrolling of the whole page */
+            /* font-weight: bold; */
+            /* font-family: sans-serif; */
         }
+        body { overflow: hidden; color: black !important;}
         #controls-container {
             position: absolute;
             top: 10px;
@@ -27,6 +33,49 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             z-index: 1001;
         }
+        #top-left-controls {
+        position: absolute;
+        top: 10px;
+        left: 50px;
+        width: 278px;
+        background: rgba(244, 244, 244, 0.9);
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Specific styles for the year slider to make it fit in a flexbox layout */
+    #slider-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #hourSlider {
+        flex-grow: 1;
+        margin: 10px 10px;
+    }
+
+    #weekdaySelector, #sexSelector {
+        margin: 10px 10px;
+    }
+
+    #sliderValue, #sliderText{
+        min-width: 40px; /* Adjusted for spacing */
+        display: inline-block; /* Keeps the label and value on the same line */
+        /* padding-bottom: 10px; */
+    }
+
+    .select2-dropdown {
+        border-radius: 4px; /* Rounded corners on dropdown */
+        margin-top: 5px; /* Spacing between the dropdown and the select */
+    }
+
+
+        #crimeSelector { width: 100%; }
+
         #map-container {
             position: relative;
             width: 100%;
@@ -47,10 +96,12 @@
         <div id="map"></div>
 
         <!-- Top-right controls for slider and dropdowns -->
-        <div id="top-right-controls" style="position: absolute; top: 10px; left: 50px; background: rgba(244, 244, 244, 0.9); padding: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 1000;">
-            <div>
+        <div id="top-left-controls">
+            <div id="slider-container">
+                <label id="sliderText" for="hourSlider">Hour:</label>
                 <input type="range" min="0" max="23" value="22" class="slider" id="hourSlider">
-                <p>Time: <span id="sliderValue">22</span>:00</p>
+                <!-- <p>Time: <span id="sliderValue">22</span>:00</p> -->
+                <span id="sliderValue">22</span>
             </div>
             <div>
                 <label for="weekdaySelector">Select Weekday:</label>
@@ -65,10 +116,21 @@
                 </select>
             </div>
             <div>
-                <label for="sexSelector">Select Victim Sex:</label>
+                <label for="sexSelector">Select Sex:</label>
                 <select id="sexSelector">
                     <option value="M">Male</option>
                     <option value="F">Female</option>
+                </select>
+                <select id="crimeSelector" multiple="multiple">
+                    <!-- {"HARRASSMENT 2": 0, "ROBBERY": 1, "FELONY ASSAULT": 2, "PETIT LARCENY": 3, "ASSAULT 3 & RELATED OFFENSES": 4, "SEX CRIMES": 5, "GRAND LARCENY": 6, "RAPE": 7} -->
+                    <option value="0">HARRASSMENT 2</option>
+                    <option value="1">ROBBERY</option>
+                    <option value="2">FELONY ASSAULT</option>
+                    <option value="3">PETIT LARCENY</option>
+                    <option value="4">ASSAULT 3 & RELATED OFFENSES</option>
+                    <option value="5">SEX CRIMES</option>
+                    <option value="6">GRAND LARCENY</option>
+                    <option value="7">RAPE</option>
                 </select>
             </div>
         </div>
@@ -102,12 +164,12 @@
             max: 100.0         // Adjust as needed
         }).addTo(map);
 
-        function updateHeatmap(hour, weekday, sex) {
+        function updateHeatmap(hour, weekday, sex, crimeTypes) {
             fetch('DataUseCase1-v2.json')
                 .then(response => response.json())
                 .then(data => {
                     // Filter based on selected hour, weekday, and sex
-                    var filteredData = data.filter(d => d.hour === hour && d.day.toString() === weekday && d.sex === sex);
+                    var filteredData = data.filter(d => d.hour === hour && d.day.toString() === weekday && d.sex === sex && crimeTypes.includes(d.crime_id) );
                     var heatData = filteredData.map(d => [d.lat, d.lon, 100]);
                     heatLayer.setLatLngs(heatData);
                 })
@@ -123,10 +185,32 @@
             var hour = parseInt(hourSlider.value);
             var weekday = weekdaySelector.value;
             var sex = sexSelector.value;
+            var selectedOptions = $('#crimeSelector').val().map(option => parseInt(option));
 
             document.getElementById('sliderValue').textContent = hour;
-            updateHeatmap(hour, weekday, sex);
+            updateHeatmap(hour, weekday, sex, selectedOptions);
         }
+
+        // Initialize crime selection
+        $('#crimeSelector').select2({
+                placeholder: "Select Crimes of interest",
+                allowClear: true,
+                width: '100%',
+                color: 'black',
+                dropdownAutoWidth: true
+            }).on('change', updateHeatmapFromInputs);
+
+            // Update placeholder text upon any selection change
+            $('#crimeSelector').on('change', function() {
+                var selectedCount = $('#crimeSelector').select2('data').length;
+                var selectionRendered = $('#crimeSelector').next('.select2').find('.select2-selection__rendered');
+                if (selectedCount > 0) {
+                    selectionRendered.html(selectedCount + ' crime(s) selected');
+                // } else {
+                //     selectionRendered.html('Select crimes'); // show default placeholder when no items are selected
+                }
+            }).on('change', updateHeatmapFromInputs);
+
 
         hourSlider.oninput = updateHeatmapFromInputs;
         weekdaySelector.onchange = updateHeatmapFromInputs;
@@ -136,7 +220,7 @@
         updateHeatmapFromInputs();
 
         function getCoordinates(address) {
-    return fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${address}`)
+        return fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${address}`)
         .then(response => response.json())
         .then(data => {
             if (data.length > 0) {
