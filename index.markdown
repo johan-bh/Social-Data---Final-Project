@@ -23,6 +23,7 @@ When travelling in New York City, certain crimes are more prominent and can pose
 
 Certain crimes are more prevalent on specific hours of the day. These temporal changes are significant, as travelling at night can be more dangerous than during the day. 
 <img src="hourly_crime_counts.png" width="80%">
+Severe crimes such as rape and sex crimes are more likely to occur at midnight
 
 
 ### UrbanShield NYC - Your Essential Navigation Partner for Safety in New York City
