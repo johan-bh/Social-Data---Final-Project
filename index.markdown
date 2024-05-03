@@ -18,7 +18,19 @@ In this datastory we will use the NYPD Complaint Data Historic dataset to analyz
 
 
 ### Data Visualizations: Focus Crimes
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a bibendum arcu. Donec sodales lorem dui, vitae vehicula augue rhoncus vitae. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus vel mollis diam, non pellentesque purus. Aliquam id dui consequat, posuere est ut, rutrum augue. Nullam sit amet ornare neque. Nunc urna felis, vestibulum eu varius sed, elementum vel turpis. Nunc ante magna, venenatis ultrices arcu sit amet, mollis auctor eros.
+
+Top crimes that affect travel safety in NYC:
+1. Harrassment 2nd degree
+2. Robbery
+3. Assault 3rd degree & related offenses
+4. Felony Assault
+5. Petit Larceny
+6. Grand Larceny
+7. Sex crimes
+8. Rape
+
+A bar plot with the average daily count of each of these crimes in NYC.
+<img src="daily_average_crime_count.png" width="100%">
 
 ### UrbanShield NYC - Your Essential Navigation Partner for Safety in New York City
 
