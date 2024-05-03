@@ -18,6 +18,7 @@ data = pd.read_csv(path + 'NYPD_Complaint_Data_Cleaned.csv')
 
 # Focus crimes
 crime_types = ['FRAUDS', 'CRIMINAL TRESPASS', 'BURGLARY']
+crime_types = ['FELONY ASSAULT', 'ROBBERY', 'RAPE']
 df_focus = data[data['Offense_Description'].isin(crime_types)]
 
 # Generate descriptive statistics
