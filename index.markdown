@@ -18,17 +18,12 @@ In this datastory we will use the NYPD Complaint Data Historic dataset to analyz
 
 
 ### Data Visualizations: Focus Crimes
-When traveling in New York City, certain crimes are more prominent and can pose a greater risk to your safety. To give an overview of which crimes to be aware of, we have created a bar plot showing the daily average count of 8 focus crimes in New York City.
-<!-- Top crimes that affect travel safety in NYC:
-1. Harrassment 2nd degree
-2. Robbery
-3. Assault 3rd degree & related offenses
-4. Felony Assault
-5. Petit Larceny
-6. Grand Larceny
-7. Sex crimes
-8. Rape -->
-<img src="daily_average_crime_count.png" width="100%">
+When travelling in New York City, certain crimes are more prominent and can pose a greater risk to your safety. To give an overview of which crimes to be aware of, we have created a bar plot showing the daily average count of 8 focus crimes in New York City.
+<img src="daily_average_crime_count.png" width="80%">
+
+Certain crimes are more prevalent on specific hours of the day. These temporal changes are significant, as travelling at night can be more dangerous than during the day. 
+<img src="hourly_crime_counts.png" width="80%">
+
 
 ### UrbanShield NYC - Your Essential Navigation Partner for Safety in New York City
 
