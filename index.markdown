@@ -84,7 +84,7 @@ Naturally, this should be compared against the number of reported crimes per cit
 <img src="multiple_plots.png" width="100%">
 
 
-Here, we see that the Bronx and Brooklyn have the first and third highest crimes per individual in their respective boroughs, as visualized in figure 4. This trend largely follows the earlier referenced papers when compared to the highlighted social data analysis for poverty and total enrollment.
+We see that the Bronx and Brooklyn have the first and third highest crimes per individual in their respective boroughs, as visualized in figure 4. This trend largely follows the earlier referenced papers when compared to the highlighted social data analysis for poverty and total enrollment.
 
 This segment hereby highlights potential socially-themed societal problems that may underlie the crime-specific issues this page addresses. We hope this will broaden the users' understanding and potentially reduce prejudice regarding the issue which we call crime.
 
