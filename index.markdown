@@ -18,12 +18,12 @@ In this datastory we will use the NYPD Complaint Data Historic dataset to analyz
 
 
 ### Data Visualizations: Focus Crimes
-When travelling in New York City, certain crimes are more prominent and can pose a greater risk to your safety. To give an overview of which crimes to be aware of, we have created a bar plot showing the daily average count of 8 focus crimes in New York City.
+In New York City, certain crimes are more prominent and can pose a greater risk to your safety while travelling or your business operations. It is crucial to be aware of these crimes and take precautions to avoid them. To give an overview, see the bar chart below which shows the daily average count of 8 travel-related crimes towards people (left) and 8 business-related crimes (right). We see that less severe crimes such as petit larceny and harassment are more common in comparison to severe crimes such as sex crimes and rape.
 <img src="daily_average_crime_comparison.png" width="100%">
 
 Certain crimes are more prevalent on specific hours of the day. These temporal changes are significant, as travelling at night can be more dangerous than during the day. 
 <img src="hourly_crime_counts.png" width="80%">
-Severe crimes such as rape and sex crimes are more likely to occur at midnight
+Severe crimes such as rape and sex crimes are more likely to occur at midnight. Which could suggest to avoid travelling alone or with strangers at night if possible. 
 
 
 ### UrbanShield NYC - Your Essential Navigation Partner for Safety in New York City
