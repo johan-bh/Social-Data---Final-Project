@@ -23,8 +23,8 @@ In New York City, certain crimes are more prominent and can pose a greater risk 
 Certain crimes are more prevalent on specific hours of the day. Looking at crimes towards people on the line plot below, we see that travelling at night can be more dangerous than during the day for crimes such as rape and sex crimes which are more likely to occur at midnight. However, harassment is far more likely to occur during the day between 8am and 8pm, as seen on the polar plot. 
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="hourly_crime_counts.png" style="height: 400px; width: auto; margin: 0;">
-    <img src="hourly_polar_plot.png" style="height: 400px; width: auto; margin: 0;">
+    <img src="hourly_crime_counts.png" style="height: 300px; width: auto; margin: 0;">
+    <img src="hourly_polar_plot.png" style="height: 300px; width: auto; margin: 0;">
 </div>
 
 
