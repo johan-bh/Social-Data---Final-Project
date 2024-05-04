@@ -13,8 +13,7 @@ title: Home
 
 Have you ever felt unsafe walking alone at night? Or ever been worried if your business is in a high-crime area? Or perhaps you have been a victim of a crime and wish to know how to avoid the risks of it happening again? With the rise in crime rates in urban areas, it is more important than ever to be aware of the potential dangers and to take steps to protect yourself. Whether you're a long-time resident, a visitor, or a business owner, it's essential to understand the crime patterns in order to make informed decisions. 
 
-In this datastory we will uncover the trends of crime data in New York City using the NYPD Complaint Data Historic dataset. We will explore the most common crimes related to travel and business, the times and locations they occur, and the socio-economic factors that may contribute to crime rates in different neighborhoods. We will provide you with a tool called UrbanShield NYC that can help you avoid high-risk areas and optimize your travel routes to keep yourself and your business safe. The NYPD Complaint Data Historic dataset [original dataset](https://data.cityofnewyork.us/d/qgea-i56i?category=Public-Safety&view_name=NYPD-Complaint-Data-Historic) from the [NYC Open Data](https://opendata.cityofnewyork.us/) website, contains all valid felony, misdemeanor, and violation crimes reported in New York City between the start of 2006 and April 2024. It covers a wide range of crimes types and severity, location, date, time, victim and suspect demographics, and more. 
-
+In this datastory we will uncover the trends of crime data in New York City using the NYPD Complaint Data Historic dataset. We will explore the most common crimes related to travel and business, the times and locations they occur, and the socio-economic factors that may contribute to crime rates in different neighborhoods. We will provide you with a tool called UrbanShield NYC that can help you avoid high-risk areas and optimize your travel routes to keep yourself and your business safe. The NYPD Complaint Data Historic dataset [original dataset](https://data.cityofnewyork.us/d/qgea-i56i?category=Public-Safety&view_name=NYPD-Complaint-Data-Historic) from the [NYC Open Data](https://opendata.cityofnewyork.us/) website, contains all valid felony, misdemeanor, and violation crimes reported in New York City between the start of 2006 and April 2024. It covers a wide range of crimes types and severity, location, date, time, victim and suspect demographics, and more. We have thoroughly cleaned this dataset to ensure that the data is accurate and as fair as possible for our analysis, notably by only focusing on years 2006 to 2022 due to inconsistent data.
 
 ### Which crimes should you look out for?
 In New York City, certain crimes are more prominent and can pose a greater risk to your safety while travelling or your business operations. It is crucial to be aware of these crimes and take precautions to avoid them. To give an overview, see the bar chart below which shows the daily average count of 8 travel-related crimes towards people (left) and 8 business-related crimes (right). We see that less severe crimes such as petit larceny and harassment are more common in comparison to severe crimes such as sex crimes and rape.
@@ -26,7 +25,7 @@ Certain crimes are more prevalent on specific hours of the day. Looking at crime
     <img src="hourly_crime_counts.png" style="height: 300px; width: auto; margin: 0;">
     <img src="hourly_polar_plot.png" style="height: 300px; width: auto; margin: 0;">
 </div>
-
+<br/>
 
 ### UrbanShield NYC - Your Essential Navigation Partner for Safety in New York City
 
@@ -70,34 +69,23 @@ The interative bar plot below gives a more detailed overview of some crimes you 
 
 <iframe src="/interactive_plot_bokeh_case2.html" style="width:100%; height:720px;" frameborder="0"></iframe>
 
-<br/><br/><br/>
+<br/>
 
 ### Socio Economic Overlays
-On a more general note, we wish to emphasize that this should not be viewed solely as a critique of the individuals who commit such crimes. A significant body of research has demonstrated that increases in criminal activity are strongly linked to socio-economic factors. For example, a paper published in the Journal of Economic Structures in 2020, titled "Dynamic Linkages between Poverty, Inequality, Crime, and Social Expenditures in a Panel of 16 Countries: Two-Step GMM Estimates," establishes a causal relationship between poverty and crime. Similarly, a paper by a Ph.D. student at the University of Texas Rio Grande Valley, titled "Education and Crime," underscores the link between lower educational levels and increased criminal activity.
+On a more general note, we wish to emphasize that this should not be viewed solely as a critique of the individuals who commit such crimes. A significant body of research has demonstrated that increases in criminal activity are strongly linked to socio-economic factors. For example, a paper published in the Journal of Economic Structures in 2020, titled "Dynamic Linkages between Poverty, Inequality, Crime, and Social Expenditures in a Panel of 16 Countries: Two-Step GMM Estimates," [paper](https://www.researchgate.net/publication/341956879_Dynamic_linkages_between_poverty_inequality_crime_and_social_expenditures_in_a_panel_of_16_countries_two-step_GMM_estimates) establishes a causal relationship between poverty and crime. Similarly, a paper by a Ph.D. student at the University of Texas Rio Grande Valley, titled "Education and Crime," [paper](https://scholarworks.utrgv.edu/cgi/viewcontent.cgi?article=1064&context=cj_fac) underscores the link between lower educational levels and increased criminal activity.
 
-As a collective, we have used data on poverty and total enrollment counts from various boroughs in NYC between 2013 and 2018 to highlight social issues that may be contributing to the crime rate we are observing. Initially, we explored the relationship between early total enrollment in educational institutions and the number of individuals living in poverty by fitting a linear regression model, with poverty as the dependent variable. Furthermore, the correlation coefficient between these two variables was calculated to be 0.9827. These calculations were conducted in hopes of illustrating a connection between two social issues that, as described in the referenced papers, are seen as catalysts for higher criminal activity.
+As a collective, we have used data on poverty and total enrollment counts from various boroughs in NYC between 2013 and 2018 to highlight social issues that may be contributing to the crime rate we are observing - (this dataset was drawn from the provided link regarding data form NYC). Initially, we explored the relationship between early total enrollment in educational institutions and the number of individuals living in poverty by fitting a linear regression model, with poverty as the dependent variable. Furthermore, the correlation coefficient between these two variables was calculated to be 0.9827. These calculations were conducted in hopes of illustrating a connection between two social issues that, as described in the referenced papers, are seen as catalysts for higher criminal activity.
 
-<!-- Replace the iframe with this img tag -->
-<img src="Linear_fit_EP.png" alt="Linear Fit Plot" style="width:100%; height:auto;">
+The linear fit, with an R^2 value of 0.92, shows a strong linear relationship between the variables, as shown in figure 1. Moreover, the occurrence and probability of poverty can be visualized by figure 2 and 3:
 
-
-The linear fit, with an R^2 value of 0.92, shows a strong linear relationship between the variables. Moreover, the occurrence and probability of poverty can be visualized by the following bar plots:
-
-<img src="P_poverty.png" width="100%">
-
-<br/><br/>
-
-<img src="P_poverty_norm.png" width="100%">
-The first bar plot depicts the proportion of individuals living below the poverty line in the various boroughs, and the normalized plot is created for comparative purposes. Apart from the Bronx and Brooklyn having the two highest probabilities of an individual being under the poverty line, a general trend regarding poverty in NYC's boroughs becomes quite clear. None of the boroughs hold a poverty percentage below 50%, which is predominantly higher when compared to the average European country — see (https://www.euro.centre.org/downloads/detail/1302) for reference.
+The first bar plot depicts the proportion of individuals living below the poverty line in the various boroughs, and the normalized plot is created for comparative purposes. Apart from the Bronx and Brooklyn having the two highest probabilities of an individual being under the poverty line, a general trend regarding poverty in NYC's boroughs becomes quite clear. None of the boroughs hold a poverty percentage below 50%, which is predominantly higher when compared to the average European country — see [source](https://www.euro.centre.org/downloads/detail/1302) for reference.
 
 Naturally, this should be compared against the number of reported crimes per citizen in each borough.
 
-<img src="Crimes_per_ind.png" width="100%">
+<img src="multiple_plots.png" width="100%">
 
-We see that the Bronx and Brooklyn have the first and third highest crimes per individual in their respective boroughs. This trend largely follows the earlier referenced papers when compared to the highlighted social data analysis for poverty and total enrollment.
+Here, we see that the Bronx and Brooklyn have the first and third highest crimes per individual in their respective boroughs, as visualized in figure 4. This trend largely follows the earlier referenced papers when compared to the highlighted social data analysis for poverty and total enrollment.
 
 This segment hereby highlights potential socially-themed societal problems that may underlie the crime-specific issues this page addresses. We hope this will broaden the users' understanding and potentially reduce prejudice regarding the issue which we call crime.
-
-<!-- <iframe src="heatmap.html" width="100%" height="800px"></iframe> -->
 
 <br/><br/><br/>
