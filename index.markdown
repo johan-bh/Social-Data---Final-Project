@@ -19,7 +19,7 @@ In this datastory we will uncover the trends of crime data in New York City usin
 In New York City, certain crimes are more prominent and can pose a greater risk to your safety while travelling or your business operations. It is crucial to be aware of these crimes and take precautions to avoid them. To give an overview, see the bar chart below which shows the daily average count of 8 travel-related crimes towards people (left) and 8 business-related crimes (right). We see that less severe crimes such as petit larceny and harassment are more common in comparison to severe crimes such as sex crimes and rape.
 <img src="daily_average_crime_comparison.png" width="100%">
 
-Certain crimes are more prevalent on specific hours of the day. Looking at crimes towards people on the line plot below, we see that travelling at night can be more dangerous than during the day for crimes such as rape and sex crimes which are more likely to occur at midnight. However, harassment is far more likely to occur during the day between 8am and 8pm, as seen on the polar plot. 
+Certain crimes are more prevalent on specific hours of the day. Looking at crimes towards people on the line plot below, we see that travelling at night can be more dangerous than during the day for crimes such as rape and sex crimes which are more likely to occur at midnight. However, harassment is far more likely to occur during the day between 8am and 8pm, as seen on the polar plot. Additionally, we see that businesses are far more likely to be targeted for crimes such as petit larceny during the day, such as shoplifting. 
 
 <div style="display: flex; justify-content: center; align-items: center;">
     <img src="hourly_crime_counts.png" style="height: 300px; width: auto; margin: 0;">
