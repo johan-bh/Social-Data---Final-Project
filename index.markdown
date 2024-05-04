@@ -9,7 +9,7 @@ title: Home
 
 ## Crime in New York City: A Data-Driven Approach to Safety and Navigation
 
-### Are safe in the city that never sleeps?
+### Are you safe in the city that never sleeps?
 
 Have you ever felt unsafe walking alone at night? Or ever been worried if your business is in a high-crime area? Or perhaps you have been a victim of a crime and wish to know how to avoid the risks of it happening again? With the rise in crime rates in urban areas, it is more important than ever to be aware of the potential dangers and to take steps to protect yourself. Whether you're a long-time resident, a visitor, or a business owner, it's essential to understand the crime patterns in order to make informed decisions. 
 
