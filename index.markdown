@@ -16,13 +16,16 @@ Have you ever felt unsafe walking alone at night? Or ever been worried if your b
 In this datastory we will uncover the trends of crime data in New York City using the NYPD Complaint Data Historic dataset. We will explore the most common crimes related to travel and business, the times and locations they occur, and the socio-economic factors that may contribute to crime rates in different neighborhoods. We will provide you with a tool called UrbanShield NYC that can help you avoid high-risk areas and optimize your travel routes to keep yourself and your business safe. The NYPD Complaint Data Historic dataset [original dataset](https://data.cityofnewyork.us/d/qgea-i56i?category=Public-Safety&view_name=NYPD-Complaint-Data-Historic) from the [NYC Open Data](https://opendata.cityofnewyork.us/) website, contains all valid felony, misdemeanor, and violation crimes reported in New York City between the start of 2006 and April 2024. It covers a wide range of crimes types and severity, location, date, time, victim and suspect demographics, and more. 
 
 
-### Data Visualizations: Focus Crimes
+### Which crimes should you look out for?
 In New York City, certain crimes are more prominent and can pose a greater risk to your safety while travelling or your business operations. It is crucial to be aware of these crimes and take precautions to avoid them. To give an overview, see the bar chart below which shows the daily average count of 8 travel-related crimes towards people (left) and 8 business-related crimes (right). We see that less severe crimes such as petit larceny and harassment are more common in comparison to severe crimes such as sex crimes and rape.
 <img src="daily_average_crime_comparison.png" width="100%">
 
-Certain crimes are more prevalent on specific hours of the day. These temporal changes are significant, as travelling at night can be more dangerous than during the day. 
-<img src="hourly_crime_counts.png" width="80%">
-Severe crimes such as rape and sex crimes are more likely to occur at midnight. Which could suggest to avoid travelling alone or with strangers at night if possible. 
+Certain crimes are more prevalent on specific hours of the day. Looking at crimes towards people on the line plot below, we see that travelling at night can be more dangerous than during the day for crimes such as rape and sex crimes which are more likely to occur at midnight. However, harassment is far more likely to occur during the day between 8am and 8pm, as seen on the polar plot. 
+
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="hourly_crime_counts.png" style="width: 70%; max-width: 560px; padding: 5px;">
+    <img src="hourly_polar_plot.png" style="width: 30%; max-width: 240px; padding: 5px;">
+</div>
 
 
 ### UrbanShield NYC - Your Essential Navigation Partner for Safety in New York City
