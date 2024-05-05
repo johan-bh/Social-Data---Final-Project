@@ -22,11 +22,13 @@ For travel-related crimes, we see that less severe crimes such as petit larceny 
 
 There are many precautions one can take to avoid the risk of specific crimes such as reducing petit larceny in retail by installing more visible [security cameras](https://www.bttcomms.com/combating-retail-theft-how-to-use-advanced-security-cameras-to-prevent-shoplifting/) in the store or [hiring security guards](https://www.dailymail.co.uk/news/article-10498885/Owner-NYC-grocery-store-chain-Gristedes-hires-security-guards-crack-shoplifting.html), which is one measure NYC Mayor Eric Adams has [proposed](https://www.nyc.gov/office-of-the-mayor/news/340-23/mayor-adams-plan-combat-retail-theft-new-york-city#/0) in his neighbourhood retail watch to combat the rise in retail theft.
 
-Certain crimes are more prevalent on specific hours of the day. Looking at crimes towards people on the line plot below, we can observe that travelling at night can be more dangerous than during the day for crimes such as rape and sex crimes which are more likely to occur at midnight. However, harassment is far more likely to occur during the day between 8am and 8pm, as supported by the polar plot. 
+Temporal changes are also important to consider, as certain crimes are more prevalent on specific hours of the day. 
+Adding caption saying 'Figure 3: Line plot showing the hourly distribution of travel-related crimes in NYC.'
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="hourly_crime_counts.png" style="height: 300px; width: auto; margin: 0;">
-    <img src="hourly_polar_plot.png" style="height: 300px; width: auto; margin: 0;">
+    <img src="hourly_crime_counts.png" style="height: 330px; width: auto; margin: 0;">
+    <img src="hourly_polar_plot.png" style="height: 330px; width: auto; margin: 0;">
 </div>
+Looking at crimes towards people on the line plot, we can observe that travelling at night can be more dangerous than during the day for crimes such as rape and sex crimes which are more likely to occur at midnight. However, harassment is far more likely to occur during the day between 8am and 8pm, as supported by the polar plot. 
 
 <br/>
 
