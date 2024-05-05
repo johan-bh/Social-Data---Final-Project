@@ -51,9 +51,33 @@ You are a man/woman leaving a lavish party at bar in downtown Manhattan. Its 02:
 <iframe src="/heatmap2.html" style="width:100%; height:600px;" frameborder="0"></iframe>
 <br/>
 
-For a more quantitative visualization, please use the following interactive bar plot to get an overview of a handful of crimes which we deemed of especially high interest for your specific case. 
+
+In an urban landscape as complex and dynamic as New York City, navigating the streets at night can be daunting, particularly after social events where personal safety becomes a paramount concern. Our **UrbanShield NYC** navigator specifically addresses this issue by providing a user-friendly tool that dynamically suggests safer travel routes based on historical crime data. By inputting a start and destination address along with the time and day of travel, users can visually assess and modify their route to avoid areas frequently associated with crimes such as robbery, felony assault, and other violent offenses.
+
+This tool is particularly beneficial for individuals who may find themselves in unfamiliar parts of the city or those who are vulnerable late at night, offering peace of mind through tailored navigational advice that prioritizes safety.
+
+#### Illumination on Urban Safety Issues:
+Use Case 1 shines a light on the broader issues of urban safety and the uneven geographical distribution of crime within the city. By mapping crime hotspots against user-directed routes, it not only aids in immediate personal safety but also raises awareness about the areas with heightened risks. This can foster a greater understanding among city dwellers and visitors about the dynamics of urban crime, potentially influencing habits and decisions regarding nightlife and travel.
+
+#### Limitations and Considerations:
+While **UrbanShield NYC** provides an innovative approach to enhancing nighttime safety, there are inherent limitations to consider:
+
+1. **Accuracy of Crime Data**: The geolocation of certain crimes in the NYPD dataset is not always exact, as locations are often reported at the nearest police precinct to maintain victim anonymity. I.e the footnotes of the NYDP complaint dataset states that rape incidents are geolocated at the nearest NYDP precint. This can lead to a slight distortion in crime mapping, potentially affecting the accuracy of the suggested safe routes.
+
+2. **Changing Criminal Patterns**: Criminals may adapt their strategies in response to shifts in public behavior influenced by tools like ours or through the use of predictive policing strategies. This could lead to changes in crime patterns over time, which means continuous updates and model recalibrations are necessary to maintain the tool's effectiveness.
+
+3. **Data and Privacy Concerns**: Utilizing crime data to navigate the city also raises questions about privacy and the ethical use of data. It is vital to ensure that the application respects user privacy and data security, particularly in how location and navigational data are handled.
+
+4. **Over-reliance on Technology**: There is a risk of over-reliance on technological solutions for safety. Users should remain aware and vigilant, using the tool as a supplement to, rather than a replacement for, personal judgment and situational awareness.
+
+#### Conclusion:
+**UrbanShield NYC's** navigator for getting home safe at night represents a significant step forward in leveraging data for public safety. However, it is crucial that users understand both its strengths and its limitations. As we continue to refine the tool, feedback and ongoing analysis will be key in enhancing its precision and reliability, ensuring that it remains a valuable resource for navigating New York City safely.
+While the crime "hotspots" cannot fully avoided when navigating the city the map shines a light general areas to avoid at certain times of the day.
+According to an article written by ['Building Security Services (BSS)'](https://www.buildingsecurity.com/blog/the-most-dangerous-neighborhoods-in-nyc/) the two most dangerous streets of Manhattan are 125th Street and Lexington Ave. If you were to select the top 5 crimes in the dropdown menu, set the time to nighttime and zoom out you would see a clear hotspots where there's dysproportionately many incidents in these exact areas. Heatmaps are great for showcasing a lot of information in a digestible manner but sometimes it can be beneficial to see a more quantitative visualization. To do so, please use the following interactive bar plot to get an overview of a handful of crimes which we deemed of especially high interest for your specific case. 
 
 <iframe src="/interactive_plot_bokeh_case1.html" style="width:100%; height:720px;" frameborder="0"></iframe>
+
+### Write some comments here (Benja)
 
 #### Use Case 2: Finding a good business location
 
@@ -72,6 +96,7 @@ The interative bar plot below gives a more detailed overview of some crimes you 
 
 <iframe src="/interactive_plot_bokeh_case2.html" style="width:100%; height:720px;" frameborder="0"></iframe>
 
+### Write some comments here
 <br/>
 
 ### Socio Economic Overlays

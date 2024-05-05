@@ -99,6 +99,7 @@
 </head>
 <body>
     <div id="map-container">
+
         <div id="map"></div>
     <!-- HTML to select different socioeconomic features -->
     <select id="featureSelector">
@@ -179,6 +180,41 @@
                 maxZoom: 17,
                 max: 1.0
             }).addTo(map);
+
+        // Function to create a legend
+        var legend = L.control({position: 'bottomright'});
+
+        function getColor(d) {
+            // gradient: blue, turquoise, green, yellow, red
+            return d > 5 ? '#FF0000' :
+                d > 4 ? '#FFA500' :
+                d > 3 ? '#FFFF00' :
+                d > 2 ? '#00FF00' :
+                d > 1 ? '#00FFFF' :
+                '#0000FF';
+        }
+
+        var colorDescription = ['Low', 'Moderate', 'High', 'Very High', 'Extreme'];
+
+        legend.onAdd = function (map) {
+
+            var div = L.DomUtil.create('div', 'info legend 2'),
+                grades = [1,2,3,4,5],
+                labels = [];
+
+            // loop through our density intervals and generate a label with a colored square for each interval, say that red is the highest concentration
+            // blue is the lowest
+            for (var i = 0; i < grades.length; i++) {
+                div.innerHTML +=
+                    '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                    colorDescription[i] + (grades[i + 1] ? '&ndash;' + colorDescription[i + 1] + '<br>' : '+');
+            }
+
+            return div;
+        };
+
+        legend.addTo(map);
+
     
             var socLayers = {}; // Stores socioeconomic layers
             var currentLayer = null; // Stores the currently visible socioeconomic layer
