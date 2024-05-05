@@ -210,6 +210,25 @@
 
         legend.addTo(map);
 
+        // Load NYPD precincts
+        function loadPrecincts() {
+            fetch('Police Precincts.geojson')
+                .then(response => response.json())
+                .then(data => {
+                    precinctLayer = L.geoJson(data, {
+                        style: function(feature) {
+                            return {
+                                color: '#000', // Black border
+                                weight: 1,
+                                fillOpacity: 0.2,
+                                fillColor: '#ccc' // Light grey fill
+                            };
+                        }
+                    }).addTo(map);
+                }).catch(err => console.error('Error loading precincts:', err));
+        }
+        loadPrecincts();
+
         function updateHeatmap(hour, weekday, sex, crimeTypes) {
             fetch('DataUseCase1-v2.json')
                 .then(response => response.json())
