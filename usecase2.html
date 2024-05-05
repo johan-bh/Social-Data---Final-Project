@@ -156,32 +156,7 @@
                 attribution: '© OpenStreetMap'
             }).addTo(map);
 
-            var landmarks = [
-            [40.748817, -73.985428],  // Empire State Building
-            [40.689247, -74.044502],  // Statue of Liberty
-            [40.752726, -73.977229],  // Grand Central Station
-            [40.706086, -73.996864],  // Brooklyn Bridge
-            [40.785091, -73.968285]   // Central Park
-        ];
-
-            // Loop through the locations and create a marker for each one
-            landmarks.forEach(function(location, index) {
-                var marker = L.marker(location, {
-                    draggable: 'true'  // Allows the marker to be dragged
-                }).addTo(map).bindPopup('Potential Business Location #' + (index + 1));
-
-                // Open the popup immediately after creating the marker
-                marker.openPopup();
-            });
-
-            var heatLayer = L.heatLayer([], {
-                radius: 3,
-                blur: 3,
-                maxZoom: 17,
-                max: 1.0
-            }).addTo(map);
-
-        // Function to create a legend
+                    // Function to create a legend
         var legend = L.control({position: 'bottomright'});
 
         function getColor(d) {
@@ -214,6 +189,31 @@
         };
 
         legend.addTo(map);
+
+            var landmarks = [
+            [40.748817, -73.985428],  // Empire State Building
+            [40.689247, -74.044502],  // Statue of Liberty
+            [40.752726, -73.977229],  // Grand Central Station
+            [40.706086, -73.996864],  // Brooklyn Bridge
+            [40.785091, -73.968285]   // Central Park
+        ];
+
+            // Loop through the locations and create a marker for each one
+            landmarks.forEach(function(location, index) {
+                var marker = L.marker(location, {
+                    draggable: 'true'  // Allows the marker to be dragged
+                }).addTo(map).bindPopup('Potential Business Location #' + (index + 1));
+
+                // Open the popup immediately after creating the marker
+                marker.openPopup();
+            });
+
+            var heatLayer = L.heatLayer([], {
+                radius: 3,
+                blur: 3,
+                maxZoom: 17,
+                max: 1.0
+            }).addTo(map);
 
     
             var socLayers = {}; // Stores socioeconomic layers
