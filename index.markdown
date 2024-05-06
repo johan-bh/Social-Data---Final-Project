@@ -78,7 +78,7 @@ According to an article written by ['Building Security Services (BSS)'](https://
 
 <iframe src="/html_templates/interactive_plot_bokeh_case1.html" style="width:100%; height:720px;" frameborder="0"></iframe>
 
-### Write some comments here (Benja)
+Here, we observe a general tendency for rape to occur around midnight, while felony assault and robbery are particularly prevalent during all the late night hours on weekends. Additionally, we notice that felony assault occurs more frequently during the summer months. These tendencies could be considered by individuals who frequent nightlife areas, as they should prioritize private transportation during certain months and hours.
 
 #### Use Case 2: Finding a good business location
 
@@ -118,6 +118,8 @@ Despite the advantages of **UrbanShield NYC**, there are several limitations tha
 #### can we find a link on business vandalism or problems with shoplifting etc, i know they changed the laws in the USA such that stealing under a certain amount isnt a severe felony
 
 <iframe src="/html_templates/interactive_plot_bokeh_case2.html" style="width:100%; height:720px;" frameborder="0"></iframe>
+
+Here, we observe a high incidence of burglary throughout all hours in general. Upon further visual analysis, it becomes evident that this trend is particularly prominent during the night hours. Such a conclusion could assist the user in understanding that if they were to open a business in NYC, implementing nightly security measures would be essential. This trend is especially pronounced during the month of June, indicating that additional security measures should be implemented around that time.
 
 ### Write some comments here
 <br/>
