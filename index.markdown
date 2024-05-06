@@ -17,7 +17,7 @@ In this datastory we will uncover the trends of crime data in New York City usin
 
 ### Which crimes should you look out for?
 In New York City, certain crimes are more prominent and can pose a greater risk to your safety while travelling or your business operations. It is crucial to be aware of these crimes and take precautions to avoid them. To give an overview, see the bar chart below which shows the daily average count of 8 of the most common travel-related crimes towards people (left) and 8 business-related crimes (right). 
-<img src="daily_average_crime_comparison.png" width="100%">
+<img src="figures/daily_average_crime_comparison.png" width="100%">
 For travel-related crimes, we see that less severe crimes such as petit larceny and harassment are more common in comparison to severe crimes such as sex crimes and rape. For most companies, the main daily concern is petty theft due to shoplifting, whereas more damaging crimes like Burglary and Robbery happen less often. 
 
 There are many precautions one can take to avoid the risk of specific crimes such as reducing petit larceny in retail by installing more visible [security cameras](https://www.bttcomms.com/combating-retail-theft-how-to-use-advanced-security-cameras-to-prevent-shoplifting/) in the store or [hiring security guards](https://www.dailymail.co.uk/news/article-10498885/Owner-NYC-grocery-store-chain-Gristedes-hires-security-guards-crack-shoplifting.html), which is one measure NYC Mayor Eric Adams has [proposed](https://www.nyc.gov/office-of-the-mayor/news/340-23/mayor-adams-plan-combat-retail-theft-new-york-city#/0) in his neighbourhood retail watch to combat the rise in retail theft.
@@ -25,8 +25,8 @@ There are many precautions one can take to avoid the risk of specific crimes suc
 Temporal changes are also important to consider, as certain crimes are more prevalent on specific hours of the day. 
 Adding caption saying 'Figure 3: Line plot showing the hourly distribution of travel-related crimes in NYC.'
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="hourly_crime_counts.png" style="height: 350px; width: auto; margin: 0;">
-    <img src="hourly_polar_plot.png" style="height: 350px; width: auto; margin: 0;">
+    <img src="figures/hourly_crime_counts.png" style="height: 350px; width: auto; margin: 0;">
+    <img src="figures/hourly_polar_plot.png" style="height: 350px; width: auto; margin: 0;">
 </div>
 Looking at crimes towards people on the line plot, we can observe that travelling at night can be more dangerous than during the day for crimes such as rape and sex crimes which are more likely to occur at midnight. However, harassment is far more likely to occur during the day between 8am and 8pm, as supported by the polar plot. 
 
