@@ -35,7 +35,7 @@ UrbanShield NYC is still in the prototype phase but shows promising potential fo
 
 
 #### Use Case 1: Getting home safe in the night
-You are a man/woman leaving a lavish party at bar in downtown Manhattan. Its 02:00 on a chilly Friday. After a night of celebrating and spending all your cash on drinks, you find yourself unable to afford a taxi home to the Bronx. The thought of walking home alone, with the possibility of assault or harassment from dark figures in the night scares you. Getting home safely is your main concern. Luckily, group 17 of the Social Viz course has developed a tool that enables users to find a safe route home. In the interactive map below you can enter the time of day, day of week, your sex assigned at birth as well as navigational inputs which yields a suggested route drawn on a heatmap. This heatmap is based which crimes you are especially interested in avoiding. The available crimes are ones we envision most individuals want to steer clear of on their way home from a part. This suggested route can be adjusted by the user to avoid crime hotspots.
+You are a man/woman leaving a lavish party at bar in downtown Manhattan. Its 02:00 on a chilly Friday. After a night of celebrating and spending all your cash on drinks, you find yourself unable to afford a taxi home to the Bronx. The thought of walking home alone, with the possibility of assault or harassment from dark figures in the night scares you. Getting home safely is your main concern. Luckily, group 17 of the Social Viz course has developed a tool that enables users to find a safe route home. In the interactive map below you can enter the time of day, day of week, your sex assigned at birth as well as navigational inputs which yields a suggested route drawn on a heatmap. This heatmap is based which crimes you are especially interested in avoiding. The available crimes are ones we envision most individuals want to steer clear of on their way home from a part. This suggested route can be adjusted by the user to avoid crime hotspots. Furthermore, we have added markers at the locations of the 77 NYPD precincts which might be useful to a citizen navigating a dangerous city.
 
 **How to use the UrbanShield Navigator:** 
 - Adjust time accordingly
@@ -44,6 +44,7 @@ You are a man/woman leaving a lavish party at bar in downtown Manhattan. Its 02:
 - Enter start (e.g. "Lower East Side, NYC") and destination address (e.g "Upper East Side, NYC") - specific addresses works just fine too
 - Click draw route
 - Drag route to avoid hotspots or change start/end location
+- Toggle the NYDP precints to see their locations
 
 <iframe src="/heatmap2.html" style="width:100%; height:600px;" frameborder="0"></iframe>
 <br/>
@@ -57,7 +58,7 @@ This tool is particularly beneficial for individuals who may find themselves in 
 #### Limitations and Considerations:
 While **UrbanShield NYC** provides an innovative approach to enhancing nighttime safety, there are inherent limitations to consider:
 
-1. **Accuracy of Crime Data**: The geolocation of certain crimes in the NYPD dataset is not always exact, as locations are often reported at the nearest police precinct to maintain victim anonymity. I.e the footnotes of the NYDP complaint dataset states that rape incidents are geolocated at the nearest NYDP precint. This can lead to a slight distortion in crime mapping, potentially affecting the accuracy of the suggested safe routes.
+1. **Accuracy of Crime Data**: The geolocation of certain crimes in the NYPD dataset is not always exact, as locations are often reported at the nearest police precinct to maintain victim anonymity. I.e the footnotes of the NYDP complaint dataset states that rape incidents are geolocated at the nearest NYDP precint. This can lead to a slight distortion in crime mapping, potentially affecting the accuracy of the suggested safe routes. If you select rape as the crime of interest (and female since there's more female victims) and toggle on the NYDP markers you'll see that there all hotspots are next to a NYPD precinct. Thus, while you'd intuitively steer clear of the red spots but in specific instance you might actually be safer going through them.
 
 2. **Changing Criminal Patterns**: Criminals may adapt their strategies in response to shifts in public behavior influenced by tools like ours or through the use of predictive policing strategies. This could lead to changes in crime patterns over time, which means continuous updates and model recalibrations are necessary to maintain the tool's effectiveness.
 
