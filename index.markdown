@@ -121,9 +121,6 @@ Despite the advantages of **UrbanShield NYC**, there are several limitations tha
 
 Here, we observe a high incidence of burglary throughout all hours in general. Upon further visual analysis, it becomes evident that this trend is particularly prominent during the night hours. Such a conclusion could assist the user in understanding that if they were to open a business in NYC, implementing nightly security measures would be essential. This trend is especially pronounced during the month of June, indicating that additional security measures should be implemented around that time.
 
-### Write some comments here
-<br/>
-
 ### Socio Economic Overlays
 On a more general note, we wish to emphasize that this should not be viewed solely as a critique of the individuals who commit such crimes. A significant body of research has demonstrated that increases in criminal activity are strongly linked to socio-economic factors. For example, a [paper](https://www.researchgate.net/publication/341956879_Dynamic_linkages_between_poverty_inequality_crime_and_social_expenditures_in_a_panel_of_16_countries_two-step_GMM_estimates) published in the Journal of Economic Structures in 2020, titled "Dynamic Linkages between Poverty, Inequality, Crime, and Social Expenditures in a Panel of 16 Countries: Two-Step GMM Estimates,"  establishes a causal relationship between poverty and crime. Similarly, a [paper](https://scholarworks.utrgv.edu/cgi/viewcontent.cgi?article=1064&context=cj_fac) by a Ph.D. student at the University of Texas Rio Grande Valley, titled "Education and Crime,"  underscores the link between lower educational levels and increased criminal activity.
 
