@@ -58,6 +58,20 @@
         opacity: 0.7;
     }
     
+
+    #toggleFeature {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        z-index: 1500; /* Ensure a high z-index */
+        padding: 4px 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px; /* Rounded corners */;
+        background: rgba(244, 244, 244, 0.9);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin-top: 10px;
+    }
+
     /* Specific styles for the year slider to make it fit in a flexbox layout */
     #slider-container {
         display: flex;
@@ -153,6 +167,8 @@
             <input type="text" id="end" placeholder="Destination">
             <button onclick="drawRoute()">Draw Route</button>
         </div>
+
+        <button id="toggleMarkers">Toggle NYPDs</button>
     </div>
     
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
@@ -210,24 +226,27 @@
 
         legend.addTo(map);
 
-        // Load NYPD precincts
-        function loadPrecincts() {
-            fetch('Police Precincts.geojson')
-                .then(response => response.json())
-                .then(data => {
-                    precinctLayer = L.geoJson(data, {
-                        style: function(feature) {
-                            return {
-                                color: '#000', // Black border
-                                weight: 1,
-                                fillOpacity: 0.2,
-                                fillColor: '#ccc' // Light grey fill
-                            };
-                        }
-                    }).addTo(map);
-                }).catch(err => console.error('Error loading precincts:', err));
-        }
-        loadPrecincts();
+        var markerGroup = L.layerGroup();
+
+        fetch('webpage-data/precinct_locations.json')
+            .then(response => response.json())
+            .then(data => {
+                // data now contains the location dictionary as an object
+                Object.entries(data).forEach(([address, coordinates]) => {
+                    var marker = L.marker(coordinates).bindPopup(address);
+                    markerGroup.addLayer(marker); // Add marker to the group
+                });
+            })
+            .catch(error => console.error('Error loading the locations:', error));
+
+        // Add button event listener for toggling marker visibility
+        document.getElementById('toggleMarkers').addEventListener('click', function() {
+            if (map.hasLayer(markerGroup)) {
+                map.removeLayer(markerGroup); // Hide markers
+            } else {
+                map.addLayer(markerGroup); // Show markers
+            }
+        });
 
         function updateHeatmap(hour, weekday, sex, crimeTypes) {
             fetch('DataUseCase1-v2.json')
