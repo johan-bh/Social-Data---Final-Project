@@ -17,13 +17,13 @@ In this datastory we will uncover the trends of crime data in New York City usin
 
 ### Which crimes should you look out for?
 In New York City, certain crimes are more prominent and can pose a greater risk to your safety while travelling or your business operations. It is crucial to be aware of these crimes and take precautions to avoid them. To give an overview, see the bar chart below which shows the daily average count of 8 travel-related crimes towards people (left) and 8 business-related crimes (right). We see that less severe crimes such as petit larceny and harassment are more common in comparison to severe crimes such as sex crimes and rape.
-<img src="daily_average_crime_comparison.png" width="100%">
+<img src="figures/daily_average_crime_comparison.png" width="100%">
 
 Certain crimes are more prevalent on specific hours of the day. Looking at crimes towards people on the line plot below, we see that travelling at night can be more dangerous than during the day for crimes such as rape and sex crimes which are more likely to occur at midnight. However, harassment is far more likely to occur during the day between 8am and 8pm, as seen on the polar plot. Additionally, we see that businesses are far more likely to be targeted for crimes such as petit larceny during the day, such as shoplifting. 
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="hourly_crime_counts.png" style="height: 300px; width: auto; margin: 0;">
-    <img src="hourly_polar_plot.png" style="height: 300px; width: auto; margin: 0;">
+    <img src="figures/hourly_crime_counts.png" style="height: 300px; width: auto; margin: 0;">
+    <img src="figures/hourly_polar_plot.png" style="height: 300px; width: auto; margin: 0;">
 </div>
 <br/>
 
@@ -46,7 +46,7 @@ You are a man/woman leaving a lavish party at bar in downtown Manhattan. Its 02:
 - Drag route to avoid hotspots or change start/end location
 - Toggle the NYDP precints to see their locations
 
-<iframe src="/heatmap2.html" style="width:100%; height:600px;" frameborder="0"></iframe>
+<iframe src="/html_templates/usecase1.html" style="width:100%; height:600px;" frameborder="0"></iframe>
 <br/>
 
 
@@ -70,7 +70,7 @@ While **UrbanShield NYC** provides an innovative approach to enhancing nighttime
 While the crime "hotspots" cannot fully avoided when navigating the city the map shines a light general areas to avoid at certain times of the day.
 According to an article written by ['Building Security Services (BSS)'](https://www.buildingsecurity.com/blog/the-most-dangerous-neighborhoods-in-nyc/) the two most dangerous streets of Manhattan are 125th Street and Lexington Ave. If you were to select the top 5 crimes in the dropdown menu, set the time to nighttime and zoom out you would see a clear hotspots where there's dysproportionately many incidents in these exact areas. Heatmaps are great for showcasing a lot of information in a digestible manner but sometimes it can be beneficial to see a more quantitative visualization. To do so, please use the following interactive bar plot to get an overview of a handful of crimes which we deemed of especially high interest for your specific case. 
 
-<iframe src="/interactive_plot_bokeh_case1.html" style="width:100%; height:720px;" frameborder="0"></iframe>
+<iframe src="/html_templates/interactive_plot_bokeh_case1.html" style="width:100%; height:720px;" frameborder="0"></iframe>
 
 ### Write some comments here (Benja)
 
@@ -85,7 +85,7 @@ A business owner, having experienced repeated vandalism at their current locatio
 - Zoom and interact with the map to investigate further
 - Conduct further investigations by selecting various miscellaneous socioeconomic features in the top right corner (lighter color indicates higher value)
 
-<iframe src="/usecase2.html" style="width:100%; height:600px;" frameborder="0"></iframe>
+<iframe src="/html_templates/usecase2.html" style="width:100%; height:600px;" frameborder="0"></iframe>
 
 The interative bar plot below gives a more detailed overview of some crimes you are most interested in avoiding.
 Navigating the business landscape in New York City requires not only a keen sense of market dynamics but also an awareness of safety and security issues. **UrbanShield NYC** assists business owners in identifying optimal locations for their enterprises by analyzing historical crime data alongside socioeconomic factors. By using this tool, entrepreneurs can compare different neighborhoods for crime rates and other relevant data, enabling them to make informed decisions about where to establish or relocate their businesses to minimize risk.
@@ -111,7 +111,7 @@ Despite the advantages of **UrbanShield NYC**, there are several limitations tha
 
 #### can we find a link on business vandalism or problems with shoplifting etc, i know they changed the laws in the USA such that stealing under a certain amount isnt a severe felony
 
-<iframe src="/interactive_plot_bokeh_case2.html" style="width:100%; height:720px;" frameborder="0"></iframe>
+<iframe src="/html_templates/interactive_plot_bokeh_case2.html" style="width:100%; height:720px;" frameborder="0"></iframe>
 
 ### Write some comments here
 <br/>
@@ -127,7 +127,7 @@ The first bar plot depicts the proportion of individuals living below the povert
 
 Naturally, this should be compared against the number of reported crimes per citizen in each borough.
 
-<img src="multiple_plots.png" width="100%">
+<img src="figures/multiple_plots.png" width="100%">
 
 Here, we see that the Bronx and Brooklyn have the first and third highest crimes per individual in their respective boroughs, as visualized in figure 4. This trend largely follows the earlier referenced papers when compared to the highlighted social data analysis for poverty and total enrollment.
 

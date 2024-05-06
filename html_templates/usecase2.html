@@ -241,7 +241,7 @@
     
             // Load and initialize socioeconomic data layers
             function loadSocioeconomicData() {
-                fetch('new-york-city-boroughs.geojson')
+                fetch('data/new-york-city-boroughs.geojson')
                     .then(response => response.json())
                     .then(data => {
                         // Initial setup of GeoJSON layer
@@ -326,7 +326,7 @@
             }
     
             function updateHeatmap(year, crimeTypes) {
-                fetch('DataUseCase2-v2.json')
+                fetch('data/DataUseCase2-v2.json')
                     .then(response => response.json())
                     .then(data => {
                         var filteredData = data.filter(d => d.Year === year && crimeTypes.includes(d.crime_id));
