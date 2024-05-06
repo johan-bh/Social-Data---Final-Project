@@ -228,7 +228,7 @@
 
         var markerGroup = L.layerGroup();
 
-        fetch('webpage-data/precinct_locations.json')
+        fetch('webpage_data/precinct_locations.json')
             .then(response => response.json())
             .then(data => {
                 // data now contains the location dictionary as an object
