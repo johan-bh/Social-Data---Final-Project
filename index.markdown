@@ -16,17 +16,21 @@ Have you ever felt unsafe walking alone at night? Or ever been worried if your b
 In this datastory we will uncover the trends of crime data in New York City using the NYPD Complaint Data Historic dataset. We will explore the most common crimes related to travel and business, the times and locations they occur, and the socio-economic factors that may contribute to crime rates in different neighborhoods. We will provide you with a tool called UrbanShield NYC that can help you avoid high-risk areas and optimize your travel routes to keep yourself and your business safe. The NYPD Complaint Data Historic dataset [original dataset](https://data.cityofnewyork.us/d/qgea-i56i?category=Public-Safety&view_name=NYPD-Complaint-Data-Historic) from the [NYC Open Data](https://opendata.cityofnewyork.us/) website, contains all valid felony, misdemeanor, and violation crimes reported in New York City between the start of 2006 and April 2024. It covers a wide range of crimes types and severity, location, date, time, victim and suspect demographics, and more. We have thoroughly cleaned this dataset to ensure that the data is accurate and as fair as possible for our analysis, notably by only focusing on years 2006 to 2022 due to inconsistent data.
 
 ### Which crimes should you look out for?
-In New York City, certain crimes are more prominent and can pose a greater risk to your safety while travelling or your business operations. It is crucial to be aware of these crimes and take precautions to avoid them. To give an overview, see the bar chart below which shows the daily average count of 8 travel-related crimes towards people (left) and 8 business-related crimes (right). We see that less severe crimes such as petit larceny and harassment are more common in comparison to severe crimes such as sex crimes and rape.
-<img src="figures/daily_average_crime_comparison.png" width="100%">
+In New York City, certain crimes are more prominent and can pose a greater risk to your safety while travelling or your business operations. It is crucial to be aware of these crimes and take precautions to avoid them. To give an overview, see the bar chart below which shows the daily average count of 8 of the most common travel-related crimes towards people (left) and 8 business-related crimes (right). 
+<img src="daily_average_crime_comparison.png" width="100%">
+For travel-related crimes, we see that less severe crimes such as petit larceny and harassment are more common in comparison to severe crimes such as sex crimes and rape. For most companies, the main daily concern is petty theft due to shoplifting, whereas more damaging crimes like Burglary and Robbery happen less often. 
 
-Certain crimes are more prevalent on specific hours of the day. Looking at crimes towards people on the line plot below, we see that travelling at night can be more dangerous than during the day for crimes such as rape and sex crimes which are more likely to occur at midnight. However, harassment is far more likely to occur during the day between 8am and 8pm, as seen on the polar plot. Additionally, we see that businesses are far more likely to be targeted for crimes such as petit larceny during the day, such as shoplifting. 
+There are many precautions one can take to avoid the risk of specific crimes such as reducing petit larceny in retail by installing more visible [security cameras](https://www.bttcomms.com/combating-retail-theft-how-to-use-advanced-security-cameras-to-prevent-shoplifting/) in the store or [hiring security guards](https://www.dailymail.co.uk/news/article-10498885/Owner-NYC-grocery-store-chain-Gristedes-hires-security-guards-crack-shoplifting.html), which is one measure NYC Mayor Eric Adams has [proposed](https://www.nyc.gov/office-of-the-mayor/news/340-23/mayor-adams-plan-combat-retail-theft-new-york-city#/0) in his neighbourhood retail watch to combat the rise in retail theft.
 
+Temporal changes are also important to consider, as certain crimes are more prevalent on specific hours of the day. 
+Adding caption saying 'Figure 3: Line plot showing the hourly distribution of travel-related crimes in NYC.'
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="figures/hourly_crime_counts.png" style="height: 300px; width: auto; margin: 0;">
-    <img src="figures/hourly_polar_plot.png" style="height: 300px; width: auto; margin: 0;">
+    <img src="hourly_crime_counts.png" style="height: 350px; width: auto; margin: 0;">
+    <img src="hourly_polar_plot.png" style="height: 350px; width: auto; margin: 0;">
 </div>
-<br/>
+Looking at crimes towards people on the line plot, we can observe that travelling at night can be more dangerous than during the day for crimes such as rape and sex crimes which are more likely to occur at midnight. However, harassment is far more likely to occur during the day between 8am and 8pm, as supported by the polar plot. 
 
+<br/>
 ### UrbanShield NYC - Your Essential Navigation Partner for Safety in New York City
 
 Introducing **UrbanShield NYC**, a pioneering navigation solution tailored for New York City dwellers and business owners. This tool enhances urban mobility by integrating historical crime data with data analysis and advanced navigation tools to provide optimized and safe travel routes and locations. Whether you need to navigate the city late at night or are looking to relocate your business, UrbanShield NYC is designed to assist in planning safer journeys and making informed location decisions.
@@ -54,6 +58,8 @@ In an urban landscape as complex and dynamic as New York City, navigating the st
 
 This tool is particularly beneficial for individuals who may find themselves in unfamiliar parts of the city or those who are vulnerable late at night, offering peace of mind through tailored navigational advice that prioritizes safety.
 
+**Illumination on Urban Safety Issues:**
+Use Case 1 shines a light on the broader issues of urban safety and the uneven geographical distribution of crime within the city. By mapping crime hotspots against user-directed routes, it not only aids in immediate personal safety but also raises awareness about the areas with heightened risks. This can foster a greater understanding among city dwellers and visitors about the dynamics of urban crime, potentially influencing habits and decisions regarding nightlife and travel.
 
 #### Limitations and Considerations:
 While **UrbanShield NYC** provides an innovative approach to enhancing nighttime safety, there are inherent limitations to consider:
@@ -132,5 +138,12 @@ Naturally, this should be compared against the number of reported crimes per cit
 Here, we see that the Bronx and Brooklyn have the first and third highest crimes per individual in their respective boroughs, as visualized in figure 4. This trend largely follows the earlier referenced papers when compared to the highlighted social data analysis for poverty and total enrollment.
 
 This segment hereby highlights potential socially-themed societal problems that may underlie the crime-specific issues this page addresses. We hope this will broaden the users' understanding and potentially reduce prejudice regarding the issue which we call crime.
+
+### Summary
+
+As shown in this data story, crime in New York City is a complex issue which has some overall identifiable trends such as specific crimes are more common during certain hours of the day, or in certain neighborhoods. However, the underlying causes of crimes can be deceptively difficult to pinpoint. By incorporating socio-economic data, we can see that there is a strong correlation between poverty and crime rates, indicating that crime is a multifaceted issue. This is why NYC Mayor Eric Adams has recently proposed a [holistic approach](https://www.cbsnews.com/newyork/news/watch-live-mayor-eric-adams-to-hold-public-safety-briefing-with-gov-kathy-hochul-attorney-general-letitia-james/) to combat the some of root causes of crime, especially in specific boroughs in the Bronx and Brooklyn.
+
+As products similar to our UrbanShield NYC tool are popularised and integrated into society through safer travel planning apps or business location scouting tools, we hope to see a reduction in crime rates and an increase in safety and security for all New Yorkers. However, since this tool is accessible to all citizens, including criminals, this may instead just shift the locations of crimes and introduce new biases into the future crime data.
+
 
 <br/><br/><br/>
