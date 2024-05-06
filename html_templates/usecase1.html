@@ -233,7 +233,7 @@
 
         var markerGroup = L.layerGroup();
 
-        fetch('data/precinct_locations.json')
+        fetch('../data/precinct_locations.json')
             .then(response => response.json())
             .then(data => {
                 // data now contains the location dictionary as an object
@@ -254,7 +254,7 @@
         });
 
         function updateHeatmap(hour, weekday, sex, crimeTypes) {
-            fetch('data/DataUseCase1-v2.json')
+            fetch('../data/DataUseCase1-v2.json')
                 .then(response => response.json())
                 .then(data => {
                     // Filter based on selected hour, weekday, and sex
