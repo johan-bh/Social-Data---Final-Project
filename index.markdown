@@ -93,6 +93,8 @@ A business owner, having experienced repeated vandalism at their current locatio
 
 <iframe src="/html_templates/usecase2.html" style="width:100%; height:600px;" frameborder="0"></iframe>
 
+**Figure 5: An interactive heatmap with user inputs (adjust time and crime types) and toggelable socioeconomic features**
+
 The interative bar plot below gives a more detailed overview of some crimes you are most interested in avoiding.
 Navigating the business landscape in New York City requires not only a keen sense of market dynamics but also an awareness of safety and security issues. **UrbanShield NYC** assists business owners in identifying optimal locations for their enterprises by analyzing historical crime data alongside socioeconomic factors. By using this tool, entrepreneurs can compare different neighborhoods for crime rates and other relevant data, enabling them to make informed decisions about where to establish or relocate their businesses to minimize risk.
 
