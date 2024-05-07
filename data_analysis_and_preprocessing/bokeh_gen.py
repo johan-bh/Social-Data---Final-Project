@@ -5,23 +5,40 @@ from bokeh.layouts import column
 from bokeh.io import output_file
 from bokeh.resources import CDN
 from bokeh.transform import dodge
-from bokeh.palettes import Viridis3
+from bokeh.palettes import Viridis5
+from bokeh.models import FactorRange
 import seaborn as sns
 from bokeh.colors import RGB
 import warnings
 
 warnings.filterwarnings('ignore')
 
+# flag to determine which use case to run
+use_case_1 = False
+
 # define path and load data
-path = '/Users/benjaminfazal/Desktop/Skole/Kandidat/Semester_1/Social_data/'
+# path = '/Users/benjaminfazal/Desktop/Skole/Kandidat/Semester_1/Social_data/'
+path = 'C:/Users/jbh/Desktop/'
 data = pd.read_csv(path + 'NYPD_Complaint_Data_Cleaned.csv')
 
 # extract the data for specific Victim Sex
-data = data[data['Victim_Sex'] == 'D']
+if use_case_1:
+    # victim sex == F and M
+    data = data[data['Victim_Sex'] != 'D']
+    data = data[data['Victim_Sex'] != 'L']
+    data = data[data['Victim_Sex'] != 'E']
+    data = data[data['Victim_Sex'] != 'L']
+    # top 5 crime types for individuals
+    crime_types = ['FELONY ASSAULT', 'HARRASSMENT 2', 'PETIT LARCENY', 'GRAND LARCENY', 'ASSAULT 3 & RELATED OFFENSES']
+    title = 'individuals'
+else:
+    # victim is a business, == D
+    data = data[data['Victim_Sex'] == 'D']
+    # top 5 business crime types
+    crime_types = ['BURGLARY', 'GRAND LARCENY', 'PETIT LARCENY', 'ROBBERY', 'CRIMINAL MISCHIEF & RELATED OF']
+    title = 'businesses'
 
-# focus crimes
-crime_types = ['FRAUDS', 'CRIMINAL TRESPASS', 'BURGLARY']
-# crime_types = ['FELONY ASSAULT', 'ROBBERY', 'RAPE']
+
 df_focus = data[data['Offense_Description'].isin(crime_types)]
 
 # generate descriptive statistics
@@ -42,23 +59,31 @@ for crime in crime_types:
 
 # create a figure
 hours = [str(h) for h in sorted(df_focus['hour'].unique())]
-p = figure(x_range=hours, title="Hourly Crime Distribution by Day",
-           toolbar_location=None, tools="", y_axis_label="Crime Count", width=800,
-           y_range=(0, max(crime_data_aggregated['count']) + 5)) 
+p = figure(x_range=hours, title=f"Hourly Crime Distribution by Day (top 5 crimes commited towards {title})",
+           toolbar_location=None, tools="", y_axis_label="Crime Count", width=1010,
+           y_range=(0, max(crime_data_aggregated['count']) + 100)) 
 
-# add bars for each crime type
-colors = Viridis3  # adjust if you have more than 3 crime types
-sns_colors = sns.color_palette("hsv", 3)  # this generates RGB tuples
+p.title.text_font_size = '14pt'
+
+# Set the x_range more flexibly to accommodate dodging
+p.x_range = FactorRange(*hours)
+
+
+colors = Viridis5  # adjust the number of colors based on the number of crime types
+sns_colors = sns.color_palette("viridis", len(crime_types))  # this generates RGB tuples
 colors = [RGB(*[int(255 * x) for x in rgb]).to_hex() for rgb in sns_colors]
 
 for idx, crime_type in enumerate(crime_types):
-    p.vbar(x=dodge('hour', -0.25 + 0.25 * idx, range=p.x_range), top='count', width=0.2, source=sources[crime_type],
+    p.vbar(x=dodge('hour', -0.2 + 0.2 * idx, range=p.x_range), top='count', width=0.185, source=sources[crime_type],
            color=colors[idx], legend_label=crime_type)
 
 # configure legend and widgets
 p.legend.location = "top_left"
 p.legend.orientation = "horizontal"
 p.legend.click_policy = "mute"
+# p.legend.margin =  50
+
+
 day_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 radio_button_group = RadioButtonGroup(labels=day_of_week, active=0)  # Default: Monday
 month_list = ['All'] + sorted(df_focus['month'].unique().tolist())
@@ -98,5 +123,11 @@ select_month.js_on_change('value', CustomJS(args=dict(sources=sources, full_sour
 layout = column(select_month, radio_button_group, p)
 
 # output the plot
-output_file("interactive_plot_bokeh_case2.html", title="Interactive Bokeh Plot")
-save(layout, resources=CDN)
+if use_case_1:
+    output_file("html_templates\interactive_plot_bokeh_case1.html", title=f"Interactive Bokeh Plot for {title}")
+    save(layout, resources=CDN)
+
+else:
+    output_file("html_templates\interactive_plot_bokeh_case2.html", title=f"Interactive Bokeh Plot for {title}")
+    save(layout, resources=CDN)
+

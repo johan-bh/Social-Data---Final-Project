@@ -84,11 +84,15 @@ While **UrbanShield NYC** provides an innovative approach to enhancing nighttime
 
 **UrbanShield NYC's** navigator for getting home safe at night represents a significant step forward in leveraging data for public safety. However, it is crucial that users understand both its strengths and its limitations. As we continue to refine the tool, feedback and ongoing analysis will be key in enhancing its precision and reliability, ensuring that it remains a valuable resource for navigating New York City safely.
 While the crime "hotspots" cannot fully avoided when navigating the city the map shines a light general areas to avoid at certain times of the day.
-According to an article written by ['Building Security Services (BSS)'](https://www.buildingsecurity.com/blog/the-most-dangerous-neighborhoods-in-nyc/) the two most dangerous streets of Manhattan are 125th Street and Lexington Ave. If you were to select the top 5 crimes in the dropdown menu, set the time to nighttime and zoom out you would see a clear hotspots where there's dysproportionately many incidents in these exact areas. Heatmaps are great for showcasing a lot of information in a digestible manner but sometimes it can be beneficial to see a more quantitative visualization. To do so, please use the following interactive bar plot to get an overview of a handful of crimes which we deemed of especially high interest for your specific case. 
+According to an article written by ['Building Security Services (BSS)'](https://www.buildingsecurity.com/blog/the-most-dangerous-neighborhoods-in-nyc/) the two most dangerous streets of Manhattan are 125th Street and Lexington Ave. If you were to select the top 5 crimes in the dropdown menu, set the time to nighttime and zoom out you would see a clear hotspots where there's dysproportionately many incidents in these exact areas. Heatmaps are great for showcasing a lot of information in a digestible manner but sometimes it can be beneficial to see a more quantitative visualization. To do so, please use the following interactive bar plot to get a more quantitative overview of the top 5 most prevalent crimes committed towards inviduals.
 
 <iframe src="/html_templates/interactive_plot_bokeh_case1.html" style="width:100%; height:720px;" frameborder="0"></iframe>
 
-Here, we observe a general tendency for rape to occur around midnight, while felony assault and robbery are particularly prevalent during all the late night hours on weekends. Additionally, we notice that felony assault occurs more frequently during the summer months. These tendencies could be considered by individuals who frequent nightlife areas, as they should prioritize private transportation during certain months and hours.
+**NB:** The default Month is "All" and Day is "Monday". Therefore, by default when you deselect a crime by clicking on a given crime in the legend you only deselect Monday data (for there entire year).
+
+Here, we observe a general tendency for crimes commited towards individuals to drop significantly between the hours of 01:00 and 07:00. Furthermore, we see that there's an increase in the incidence of crimes around Thursday to Saturday. This holds true for all months of there year. For the more severe crimes such as Assault we see higher incidence during the night hours, especially during the weekends.
+
+
 
 #### Use Case 2: Finding a good business location
 
@@ -125,9 +129,13 @@ Despite the advantages of **UrbanShield NYC**, there are several limitations tha
 
 **UrbanShield NYC** is designed to empower business owners with data-driven insights for selecting safe and prosperous business locations in New York City. While the tool offers a robust basis for decision-making, it is vital for users to maintain an informed perspective by considering additional current and localized information. As the landscape of New York City continues to evolve, so too should the strategies for choosing the safest and most viable locations for business operations. The socioeconomic features are only a small subset of data points that might be of interest to a business owner. We encourage users to investigate the usefulness of the features and what conclusions you can draw from them.
 
+To further investigate the business related crimes please use the following interactive bar plot to get an more quantitative overview of the top 5 most prevalent crimes committed towards businesses.
+
 <iframe src="/html_templates/interactive_plot_bokeh_case2.html" style="width:100%; height:720px;" frameborder="0"></iframe>
 
-Here, we observe a high incidence of burglary throughout all hours in general. Upon further visual analysis, it becomes evident that this trend is particularly prominent during the night hours. Such a conclusion could assist the user in understanding that if they were to open a business in NYC, implementing nightly security measures would be essential. This trend is especially pronounced during the month of June, indicating that additional security measures should be implemented around that time.
+**NB:** The default Month is "All" and Day is "Monday". Therefore, by default when you deselect a crime by clicking on a given crime in the legend you only deselect Monday data (for there entire year).
+
+From the figure above we observe that most crimes (except Petit Larceny) seem to peak during th elate evening to nighttime hours, particualrly between 18:00 and 23:00. This pattern is consistent across most days of the week. We see day-to-day consistency for all 5 crimes with slightly more prevalence during the weekends. Although monthly differences, it is hard to find any general tendencies. Petit Larceny is the most prevalent crime for business and appear to peak during the afternoon suggesting. This seems quite intuitive as Petit Larceny encapsulates crimes such as shoplifting which is limited to business hours.
 
 ### Socio Economic Overlays
 On a more general note, we wish to emphasize that this should not be viewed solely as a critique of the individuals who commit such crimes. A significant body of research has demonstrated that increases in criminal activity are strongly linked to socio-economic factors. For example, a [paper](https://www.researchgate.net/publication/341956879_Dynamic_linkages_between_poverty_inequality_crime_and_social_expenditures_in_a_panel_of_16_countries_two-step_GMM_estimates) published in the Journal of Economic Structures in 2020, titled "Dynamic Linkages between Poverty, Inequality, Crime, and Social Expenditures in a Panel of 16 Countries: Two-Step GMM Estimates,"  establishes a causal relationship between poverty and crime. Similarly, a [paper](https://scholarworks.utrgv.edu/cgi/viewcontent.cgi?article=1064&context=cj_fac) by a Ph.D. student at the University of Texas Rio Grande Valley, titled "Education and Crime,"  underscores the link between lower educational levels and increased criminal activity.
@@ -154,3 +162,8 @@ As products similar to our UrbanShield NYC tool are popularised and integrated i
 
 
 <br/><br/><br/>
+
+#### Explainer Notebook
+This webpage is a self-contained project that builds upon a large amount of research, data analysis, and coding.
+Click the following link to visit our Explainer Notebook and get a peek behind the scenes [Explainer Notebook](explainer_notebook.ipynb)
+
