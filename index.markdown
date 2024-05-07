@@ -25,8 +25,8 @@ There are many precautions one can take to avoid the risk of specific crimes suc
 Temporal changes are also important to consider, as certain crimes are more prevalent on specific hours of the day. 
 Adding caption saying 'Figure 3: Line plot showing the hourly distribution of travel-related crimes in NYC.'
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="figures/hourly_crime_counts.png" style="height: 350px; width: auto; margin: 0;">
-    <img src="figures/hourly_polar_plot.png" style="height: 350px; width: auto; margin: 0;">
+    <img src="figures/hourly_crime_counts.png" style="height: 360px; width: auto; margin: 0;">
+    <img src="figures/hourly_polar_plot.png" style="height: 360px; width: auto; margin: 0;">
 </div>
 Looking at crimes towards people on the line plot, we can observe that travelling at night can be more dangerous than during the day for crimes such as rape and sex crimes which are more likely to occur at midnight. However, harassment is far more likely to occur during the day between 8am and 8pm, as supported by the polar plot. 
 
