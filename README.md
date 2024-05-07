@@ -3,3 +3,4 @@ This repo includes all the code, notebooks, visualizations, etc. which culminate
 Key files:
 - index.markdown   (landing page formatting and text)
 - explainer_notebook.ipynb    (most relevant code and plots with explanatory text about design choices)
+- [Use Case 1: HTML Code](html_templates/usecase1.html)
