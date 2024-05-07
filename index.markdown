@@ -28,10 +28,11 @@ For travel-related crimes, we see that less severe crimes such as petit larceny 
 There are many precautions one can take to avoid the risk of specific crimes such as reducing petit larceny in retail by installing more visible [security cameras](https://www.bttcomms.com/combating-retail-theft-how-to-use-advanced-security-cameras-to-prevent-shoplifting/) in the store or [hiring security guards](https://www.dailymail.co.uk/news/article-10498885/Owner-NYC-grocery-store-chain-Gristedes-hires-security-guards-crack-shoplifting.html), which is one measure NYC Mayor Eric Adams has [proposed](https://www.nyc.gov/office-of-the-mayor/news/340-23/mayor-adams-plan-combat-retail-theft-new-york-city#/0) in his neighbourhood retail watch to combat the rise in retail theft.
 
 Temporal changes are also important to consider, as certain crimes are more prevalent on specific hours of the day. 
-Adding caption saying 'Figure 3: Line plot showing the hourly distribution of travel-related crimes in NYC.'
+Adding caption saying 'Figure 3: Line plot showing the hourly distribution of travel-related crimes in NYC.
+
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="figures/hourly_crime_counts.png" width="400px">
-    <img src="figures/hourly_polar_plot.png" width="400px">
+    <img src="figures/hourly_crime_counts.png" style="height: 477px">
+    <img src="figures/hourly_polar_plot.png"  style="height: 477px">
 </div>
 
 <br/>
@@ -39,7 +40,7 @@ Looking at crimes towards people on the line plot, we can observe that travellin
 
 <br/>
 
-Now that you've conducted an intial exploration of crime in NYC we invite you to use our
+Now that you've conducted an intial exploration of crime in NYC we invite you to use our interactive visualisations. These visualizations are aimed at helping the average NYC citizen as well as the curious reader that want to explore the data by themseleves for deeper understanding of the underlying nature of crime in NYC.
 
 ### UrbanShield NYC - Your Essential Navigation Partner for Safety in New York City
 
