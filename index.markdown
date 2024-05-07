@@ -31,8 +31,8 @@ Temporal changes are also important to consider, as certain crimes are more prev
 Adding caption saying 'Figure 3: Line plot showing the hourly distribution of travel-related crimes in NYC.
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="figures/hourly_crime_counts.png" style="width: 52.76%">
-    <img src="figures/hourly_polar_plot.png"  style="width: 47.23%">
+    <img src="figures/hourly_crime_counts.png" style="width: 52.73%">
+    <img src="figures/hourly_polar_plot.png"  style="width: 47.27%">
 </div>
 
 <br/>
