@@ -14,7 +14,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # flag to determine which use case to run
-use_case_1 = False
+use_case_1 = True
 
 # define path and load data
 # path = '/Users/benjaminfazal/Desktop/Skole/Kandidat/Semester_1/Social_data/'
@@ -60,10 +60,18 @@ for crime in crime_types:
 # create a figure
 hours = [str(h) for h in sorted(df_focus['hour'].unique())]
 p = figure(x_range=hours, title=f"Hourly Crime Distribution by Day (top 5 crimes commited towards {title})",
-           toolbar_location=None, tools="", y_axis_label="Crime Count", width=1010,
+           toolbar_location=None, tools="", y_axis_label="Crime Count", x_axis_label="Hour of the day", width=1010,
            y_range=(0, max(crime_data_aggregated['count']) + 100)) 
 
 p.title.text_font_size = '14pt'
+
+# increase size of x and y axis labels
+p.xaxis.axis_label_text_font_size = '14pt'
+p.yaxis.axis_label_text_font_size = '14pt'
+
+# increase the boldness of the x and y axis labels
+p.xaxis.axis_label_text_font_style = 'bold'
+p.yaxis.axis_label_text_font_style = 'bold'
 
 # Set the x_range more flexibly to accommodate dodging
 p.x_range = FactorRange(*hours)

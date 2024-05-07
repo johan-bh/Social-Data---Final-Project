@@ -135,7 +135,7 @@ To further investigate the business related crimes please use the following inte
 
 **NB:** The default Month is "All" and Day is "Monday". Therefore, by default when you deselect a crime by clicking on a given crime in the legend you only deselect Monday data (for there entire year).
 
-From the figure above we observe that most crimes (except Petit Larceny) seem to peak during th elate evening to nighttime hours, particualrly between 18:00 and 23:00. This pattern is consistent across most days of the week. We see day-to-day consistency for all 5 crimes with slightly more prevalence during the weekends. Although monthly differences, it is hard to find any general tendencies. Petit Larceny is the most prevalent crime for business and appear to peak during the afternoon suggesting. This seems quite intuitive as Petit Larceny encapsulates crimes such as shoplifting which is limited to business hours.
+From the figure above we observe that most crimes (except Petit Larceny) seem to peak during the late evening to nighttime hours, particualrly between 18:00 and 23:00. This pattern is consistent across most days of the week. We see day-to-day consistency for all 5 crimes with slightly more prevalence during the friday. Although monthly differences, it is hard to find any general tendencies. Petit Larceny is the most prevalent crime for business and appear to peak during the afternoon suggesting. This seems quite intuitive as Petit Larceny encapsulates crimes such as shoplifting which is limited to business hours.
 
 ### Socio Economic Overlays
 On a more general note, we wish to emphasize that this should not be viewed solely as a critique of the individuals who commit such crimes. A significant body of research has demonstrated that increases in criminal activity are strongly linked to socio-economic factors. For example, a [paper](https://www.researchgate.net/publication/341956879_Dynamic_linkages_between_poverty_inequality_crime_and_social_expenditures_in_a_panel_of_16_countries_two-step_GMM_estimates) published in the Journal of Economic Structures in 2020, titled "Dynamic Linkages between Poverty, Inequality, Crime, and Social Expenditures in a Panel of 16 Countries: Two-Step GMM Estimates,"  establishes a causal relationship between poverty and crime. Similarly, a [paper](https://scholarworks.utrgv.edu/cgi/viewcontent.cgi?article=1064&context=cj_fac) by a Ph.D. student at the University of Texas Rio Grande Valley, titled "Education and Crime,"  underscores the link between lower educational levels and increased criminal activity.
@@ -161,9 +161,9 @@ As shown in this data story, crime in New York City is a complex issue which has
 As products similar to our UrbanShield NYC tool are popularised and integrated into society through safer travel planning apps or business location scouting tools, we hope to see a reduction in crime rates and an increase in safety and security for all New Yorkers. However, since this tool is accessible to all citizens, including criminals, this may instead just shift the locations of crimes and introduce new biases into the future crime data.
 
 
-<br/><br/><br/>
+<br/>
 
 #### Explainer Notebook
 This webpage is a self-contained project that builds upon a large amount of research, data analysis, and coding.
-Click the following link to visit our Explainer Notebook and get a peek behind the scenes [Explainer Notebook](explainer_notebook.ipynb)
+Click the following link to visit our Explainer Notebook and get a peek behind the scenes [Explainer Notebook](https://github.com/johan-bh/johan-bh.github.io/blob/main/explainer_notebook.ipynb)
 
