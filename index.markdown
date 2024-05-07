@@ -16,21 +16,31 @@ Have you ever felt unsafe walking alone at night? Or ever been worried if your b
 In this datastory we will uncover the trends of crime data in New York City using the NYPD Complaint Data Historic dataset. We will explore the most common crimes related to travel and business, the times and locations they occur, and the socio-economic factors that may contribute to crime rates in different neighborhoods. We will provide you with a tool called UrbanShield NYC that can help you avoid high-risk areas and optimize your travel routes to keep yourself and your business safe. The NYPD Complaint Data Historic dataset [original dataset](https://data.cityofnewyork.us/d/qgea-i56i?category=Public-Safety&view_name=NYPD-Complaint-Data-Historic) from the [NYC Open Data](https://opendata.cityofnewyork.us/) website, contains all valid felony, misdemeanor, and violation crimes reported in New York City between the start of 2006 and April 2024. It covers a wide range of crimes types and severity, location, date, time, victim and suspect demographics, and more. We have thoroughly cleaned this dataset to ensure that the data is accurate and as fair as possible for our analysis, notably by only focusing on years 2006 to 2022 due to inconsistent data.
 
 ### Which crimes should you look out for?
-In New York City, certain crimes are more prominent and can pose a greater risk to your safety while travelling or your business operations. It is crucial to be aware of these crimes and take precautions to avoid them. To give an overview, see the bar chart below which shows the daily average count of 8 of the most common travel-related crimes towards people (left) and 8 business-related crimes (right). 
+In New York City, certain crimes are more prominent and can pose a greater risk to your safety while travelling or your business operations. It is crucial to be aware of these crimes and take precautions to avoid them. To give an overview, see the bar chart below which shows the daily average count of 8 of the most common travel-related crimes towards people (left) and 8 business-related crimes (right).
+
+<br/>
 <img src="figures/daily_average_crime_comparison.png" width="100%">
+<br/>
+<br/>
 For travel-related crimes, we see that less severe crimes such as petit larceny and harassment are more common in comparison to severe crimes such as sex crimes and rape. For most companies, the main daily concern is petty theft due to shoplifting, whereas more damaging crimes like Burglary and Robbery happen less often. 
+
 
 There are many precautions one can take to avoid the risk of specific crimes such as reducing petit larceny in retail by installing more visible [security cameras](https://www.bttcomms.com/combating-retail-theft-how-to-use-advanced-security-cameras-to-prevent-shoplifting/) in the store or [hiring security guards](https://www.dailymail.co.uk/news/article-10498885/Owner-NYC-grocery-store-chain-Gristedes-hires-security-guards-crack-shoplifting.html), which is one measure NYC Mayor Eric Adams has [proposed](https://www.nyc.gov/office-of-the-mayor/news/340-23/mayor-adams-plan-combat-retail-theft-new-york-city#/0) in his neighbourhood retail watch to combat the rise in retail theft.
 
 Temporal changes are also important to consider, as certain crimes are more prevalent on specific hours of the day. 
 Adding caption saying 'Figure 3: Line plot showing the hourly distribution of travel-related crimes in NYC.'
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="figures/hourly_crime_counts.png" style="height: 360px; width: auto; margin: 0;">
-    <img src="figures/hourly_polar_plot.png" style="height: 360px; width: auto; margin: 0;">
+    <img src="figures/hourly_crime_counts.png" width="400px">
+    <img src="figures/hourly_polar_plot.png" width="400px">
 </div>
+
+<br/>
 Looking at crimes towards people on the line plot, we can observe that travelling at night can be more dangerous than during the day for crimes such as rape and sex crimes which are more likely to occur at midnight. However, harassment is far more likely to occur during the day between 8am and 8pm, as supported by the polar plot. 
 
 <br/>
+
+Now that you've conducted an intial exploration of crime in NYC we invite you to use our
+
 ### UrbanShield NYC - Your Essential Navigation Partner for Safety in New York City
 
 Introducing **UrbanShield NYC**, a pioneering navigation solution tailored for New York City dwellers and business owners. This tool enhances urban mobility by integrating historical crime data with data analysis and advanced navigation tools to provide optimized and safe travel routes and locations. Whether you need to navigate the city late at night or are looking to relocate your business, UrbanShield NYC is designed to assist in planning safer journeys and making informed location decisions.
