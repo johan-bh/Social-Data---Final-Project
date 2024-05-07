@@ -39,7 +39,6 @@ Adding caption saying 'Figure 3: Line plot showing the hourly distribution of tr
 Looking at crimes towards people on the line plot, we can observe that travelling at night can be more dangerous than during the day for crimes such as rape and sex crimes which are more likely to occur at midnight. However, harassment is far more likely to occur during the day between 8am and 8pm, as supported by the polar plot. 
 
 <br/>
-
 Now that you've conducted an intial exploration of crime in NYC we invite you to use our interactive visualisations. These visualizations are aimed at helping the average NYC citizen as well as the curious reader that want to explore the data by themseleves for deeper understanding of the underlying nature of crime in NYC.
 
 ### UrbanShield NYC - Your Essential Navigation Partner for Safety in New York City

@@ -21,7 +21,7 @@
 title: Exam Project (02806 Social data analysis and visualization)
 email: s194495@dtu.dk
 description: >- # this means to ignore newlines until "baseurl:"
-  This web page is dedicated to showcase our Exam project for the Social Data Analysis and Visualization course.
+  Final Exam Project: Social Data Analysis and Visualization
   <br/>Created by: Oliver Rosbæk Elmgreen, Benjamin Kock Fazal, and Johan Böcher Hanehøj
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://johan-bh.github.io" # the base hostname & protocol for your site, e.g. http://example.com
