@@ -32,7 +32,7 @@ Adding caption saying 'Figure 3: Line plot showing the hourly distribution of tr
 
 <div style="display: flex; justify-content: center; align-items: center;">
     <img src="figures/hourly_crime_counts.png" style="width: 53.66%">
-    <img src="figures/hourly_polar_plot.png"  style="width: 46.5%">
+    <img src="figures/hourly_polar_plot.png"  style="width: 47.03%">
 </div>
 
 <br/>
