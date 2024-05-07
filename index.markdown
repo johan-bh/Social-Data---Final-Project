@@ -115,8 +115,6 @@ Despite the advantages of **UrbanShield NYC**, there are several limitations tha
 
 **UrbanShield NYC** is designed to empower business owners with data-driven insights for selecting safe and prosperous business locations in New York City. While the tool offers a robust basis for decision-making, it is vital for users to maintain an informed perspective by considering additional current and localized information. As the landscape of New York City continues to evolve, so too should the strategies for choosing the safest and most viable locations for business operations. The socioeconomic features are only a small subset of data points that might be of interest to a business owner. We encourage users to investigate the usefulness of the features and what conclusions you can draw from them.
 
-#### can we find a link on business vandalism or problems with shoplifting etc, i know they changed the laws in the USA such that stealing under a certain amount isnt a severe felony
-
 <iframe src="/html_templates/interactive_plot_bokeh_case2.html" style="width:100%; height:720px;" frameborder="0"></iframe>
 
 Here, we observe a high incidence of burglary throughout all hours in general. Upon further visual analysis, it becomes evident that this trend is particularly prominent during the night hours. Such a conclusion could assist the user in understanding that if they were to open a business in NYC, implementing nightly security measures would be essential. This trend is especially pronounced during the month of June, indicating that additional security measures should be implemented around that time.
