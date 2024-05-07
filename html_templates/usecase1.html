@@ -115,6 +115,10 @@
             width: 100%;
             gap: 10px;
         }
+        .leaflet-routing-container {
+            margin-top: 50px !important;
+        }
+
     </style>
 </head>
 <body>
@@ -228,7 +232,7 @@
 
         var markerGroup = L.layerGroup();
 
-        fetch('webpage_data/precinct_locations.json')
+        fetch('../data/precinct_locations.json')
             .then(response => response.json())
             .then(data => {
                 // data now contains the location dictionary as an object
@@ -249,7 +253,7 @@
         });
 
         function updateHeatmap(hour, weekday, sex, crimeTypes) {
-            fetch('DataUseCase1-v2.json')
+            fetch('../data/DataUseCase1-v2.json')
                 .then(response => response.json())
                 .then(data => {
                     // Filter based on selected hour, weekday, and sex
@@ -343,6 +347,7 @@ function drawRoute() {
                 waypoints: [startPoint, endPoint],
                 routeWhileDragging: true,
                 router: L.Routing.mapbox('pk.eyJ1Ijoiam9oYW5iOTkiLCJhIjoiY2x2bDR3aGt1MDNlbzJpcGU2N3JkZDA1bSJ9.egahaIuapmyBKG-HpxkeUQ', {
+                    // We use cycling because the plugin api does not support exclusion of ferries, etc.
                     profile: 'mapbox/cycling',
                     // Include the departure time in the request
                     options: {

@@ -17,7 +17,7 @@ In this datastory we will uncover the trends of crime data in New York City usin
 
 ### Which crimes should you look out for?
 In New York City, certain crimes are more prominent and can pose a greater risk to your safety while travelling or your business operations. It is crucial to be aware of these crimes and take precautions to avoid them. To give an overview, see the bar chart below which shows the daily average count of 8 of the most common travel-related crimes towards people (left) and 8 business-related crimes (right). 
-<img src="daily_average_crime_comparison.png" width="100%">
+<img src="figures/daily_average_crime_comparison.png" width="100%">
 For travel-related crimes, we see that less severe crimes such as petit larceny and harassment are more common in comparison to severe crimes such as sex crimes and rape. For most companies, the main daily concern is petty theft due to shoplifting, whereas more damaging crimes like Burglary and Robbery happen less often. 
 
 There are many precautions one can take to avoid the risk of specific crimes such as reducing petit larceny in retail by installing more visible [security cameras](https://www.bttcomms.com/combating-retail-theft-how-to-use-advanced-security-cameras-to-prevent-shoplifting/) in the store or [hiring security guards](https://www.dailymail.co.uk/news/article-10498885/Owner-NYC-grocery-store-chain-Gristedes-hires-security-guards-crack-shoplifting.html), which is one measure NYC Mayor Eric Adams has [proposed](https://www.nyc.gov/office-of-the-mayor/news/340-23/mayor-adams-plan-combat-retail-theft-new-york-city#/0) in his neighbourhood retail watch to combat the rise in retail theft.
@@ -25,8 +25,8 @@ There are many precautions one can take to avoid the risk of specific crimes suc
 Temporal changes are also important to consider, as certain crimes are more prevalent on specific hours of the day. 
 Adding caption saying 'Figure 3: Line plot showing the hourly distribution of travel-related crimes in NYC.'
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="hourly_crime_counts.png" style="height: 350px; width: auto; margin: 0;">
-    <img src="hourly_polar_plot.png" style="height: 350px; width: auto; margin: 0;">
+    <img src="figures/hourly_crime_counts.png" style="height: 350px; width: auto; margin: 0;">
+    <img src="figures/hourly_polar_plot.png" style="height: 350px; width: auto; margin: 0;">
 </div>
 Looking at crimes towards people on the line plot, we can observe that travelling at night can be more dangerous than during the day for crimes such as rape and sex crimes which are more likely to occur at midnight. However, harassment is far more likely to occur during the day between 8am and 8pm, as supported by the polar plot. 
 
@@ -50,7 +50,7 @@ You are a man/woman leaving a lavish party at bar in downtown Manhattan. Its 02:
 - Drag route to avoid hotspots or change start/end location
 - Toggle the NYDP precints to see their locations
 
-<iframe src="/heatmap2.html" style="width:100%; height:600px;" frameborder="0"></iframe>
+<iframe src="/html_templates/usecase1.html" style="width:100%; height:600px;" frameborder="0"></iframe>
 <br/>
 
 
@@ -76,9 +76,9 @@ While **UrbanShield NYC** provides an innovative approach to enhancing nighttime
 While the crime "hotspots" cannot fully avoided when navigating the city the map shines a light general areas to avoid at certain times of the day.
 According to an article written by ['Building Security Services (BSS)'](https://www.buildingsecurity.com/blog/the-most-dangerous-neighborhoods-in-nyc/) the two most dangerous streets of Manhattan are 125th Street and Lexington Ave. If you were to select the top 5 crimes in the dropdown menu, set the time to nighttime and zoom out you would see a clear hotspots where there's dysproportionately many incidents in these exact areas. Heatmaps are great for showcasing a lot of information in a digestible manner but sometimes it can be beneficial to see a more quantitative visualization. To do so, please use the following interactive bar plot to get an overview of a handful of crimes which we deemed of especially high interest for your specific case. 
 
-<iframe src="/interactive_plot_bokeh_case1.html" style="width:100%; height:720px;" frameborder="0"></iframe>
+<iframe src="/html_templates/interactive_plot_bokeh_case1.html" style="width:100%; height:720px;" frameborder="0"></iframe>
 
-### Write some comments here (Benja)
+Here, we observe a general tendency for rape to occur around midnight, while felony assault and robbery are particularly prevalent during all the late night hours on weekends. Additionally, we notice that felony assault occurs more frequently during the summer months. These tendencies could be considered by individuals who frequent nightlife areas, as they should prioritize private transportation during certain months and hours.
 
 #### Use Case 2: Finding a good business location
 
@@ -91,7 +91,7 @@ A business owner, having experienced repeated vandalism at their current locatio
 - Zoom and interact with the map to investigate further
 - Conduct further investigations by selecting various miscellaneous socioeconomic features in the top right corner (lighter color indicates higher value)
 
-<iframe src="/usecase2.html" style="width:100%; height:600px;" frameborder="0"></iframe>
+<iframe src="/html_templates/usecase2.html" style="width:100%; height:600px;" frameborder="0"></iframe>
 
 The interative bar plot below gives a more detailed overview of some crimes you are most interested in avoiding.
 Navigating the business landscape in New York City requires not only a keen sense of market dynamics but also an awareness of safety and security issues. **UrbanShield NYC** assists business owners in identifying optimal locations for their enterprises by analyzing historical crime data alongside socioeconomic factors. By using this tool, entrepreneurs can compare different neighborhoods for crime rates and other relevant data, enabling them to make informed decisions about where to establish or relocate their businesses to minimize risk.
@@ -117,10 +117,9 @@ Despite the advantages of **UrbanShield NYC**, there are several limitations tha
 
 #### can we find a link on business vandalism or problems with shoplifting etc, i know they changed the laws in the USA such that stealing under a certain amount isnt a severe felony
 
-<iframe src="/interactive_plot_bokeh_case2.html" style="width:100%; height:720px;" frameborder="0"></iframe>
+<iframe src="/html_templates/interactive_plot_bokeh_case2.html" style="width:100%; height:720px;" frameborder="0"></iframe>
 
-### Write some comments here
-<br/>
+Here, we observe a high incidence of burglary throughout all hours in general. Upon further visual analysis, it becomes evident that this trend is particularly prominent during the night hours. Such a conclusion could assist the user in understanding that if they were to open a business in NYC, implementing nightly security measures would be essential. This trend is especially pronounced during the month of June, indicating that additional security measures should be implemented around that time.
 
 ### Socio Economic Overlays
 On a more general note, we wish to emphasize that this should not be viewed solely as a critique of the individuals who commit such crimes. A significant body of research has demonstrated that increases in criminal activity are strongly linked to socio-economic factors. For example, a [paper](https://www.researchgate.net/publication/341956879_Dynamic_linkages_between_poverty_inequality_crime_and_social_expenditures_in_a_panel_of_16_countries_two-step_GMM_estimates) published in the Journal of Economic Structures in 2020, titled "Dynamic Linkages between Poverty, Inequality, Crime, and Social Expenditures in a Panel of 16 Countries: Two-Step GMM Estimates,"  establishes a causal relationship between poverty and crime. Similarly, a [paper](https://scholarworks.utrgv.edu/cgi/viewcontent.cgi?article=1064&context=cj_fac) by a Ph.D. student at the University of Texas Rio Grande Valley, titled "Education and Crime,"  underscores the link between lower educational levels and increased criminal activity.
@@ -133,7 +132,7 @@ The first bar plot depicts the proportion of individuals living below the povert
 
 Naturally, this should be compared against the number of reported crimes per citizen in each borough.
 
-<img src="multiple_plots.png" width="100%">
+<img src="figures/multiple_plots.png" width="100%">
 
 Here, we see that the Bronx and Brooklyn have the first and third highest crimes per individual in their respective boroughs, as visualized in figure 4. This trend largely follows the earlier referenced papers when compared to the highlighted social data analysis for poverty and total enrollment.
 
